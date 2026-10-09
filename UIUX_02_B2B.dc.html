@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html style="background: #1B1C20;">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PH B2B 後臺｜RLZ's Portfolio</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RLZ's Portfolio">
+<meta property="og:title" content="PH B2B 後臺｜RLZ's Portfolio">
+<meta property="og:image" content="assets/og_cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="dark">
+<style id="preload-bg">html, body { margin: 0; background: #1B1C20; } @view-transition { navigation: auto; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; }</style>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+<script src="page-transition.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #1B1C20; }
+  a { color: #F2F2F2; text-decoration: none; }
+  a:hover { color: #A7A7A7; }
+</style>
+</helmet>
+
+<div style="position: fixed; inset: 0; z-index: 100; background: #1B1C20; opacity: {{ coverOpacity }}; pointer-events: {{ coverPointer }}; transition: opacity 420ms ease-out;"></div>
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: 101; pointer-events: none; background: {{ coverBg }}; opacity: {{ leaveOpacity }}; transition: opacity 300ms ease-out;"></div>
+
+<div style="background: #1B1C20; color: var(--color-primary, #F2F2F2);">
+
+  <dc-import name="Com_Project_Hero" src="assets/b2b_img_cover.webp" src1x="assets/b2b_img_cover-1x.webp" alt="B2B 遊戲上架後台 主視覺" hint-size="100%,500px">
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 70;"><dc-import name="Com_Nav" current="" tone="dark" on-navigate="{{ nav }}" hint-size="100%,108px"></dc-import></div>
+  </dc-import>
+
+  <main style="box-sizing: border-box; width: 100%; max-width: calc(min(1460px, max(76.04vw, 720px)) + 2 * clamp(20px, 4vw, 64px)); margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px) clamp(200px, 18vh, 300px); display: flex; flex-direction: column;">
+
+    <dc-import name="Com_Project_Head" brand="PlayHorny" subtitle="B2B 後臺" quote="讓合作廠商透過官方提供的帳號登入後台，自行管理遊戲內容與公告資訊，完成資料填寫後送出審核。透過標準化的上架流程，降低營運人員的人工處理成本，並提升內容管理效率。" about="PlayHorny 平台提供遊戲下載、點數儲值、派對卡（會員）訂閱、商城及遊戲宣傳活動等完整的遊戲服務。
+本專案聚焦於 PlayHorny 合作廠商的遊戲上架管理，協助廠商完成遊戲資料、素材與審核流程。" tags="UI Design, Design System, UX Design, shadcn ui" category="B2B Dashboard" device="Desktop" date="2026" people="{{ people }}" software="{{ software }}" on-back="{{ goBack }}" hint-size="100%,1100px"></dc-import>
+
+    <dc-import name="Com_Project_Section" title="Problem &amp; Solution" first="true" hint-size="100%,400px">
+      <img src="assets/b2b_img_block1-1x.webp" srcset="assets/b2b_img_block1-1x.webp 1x, assets/b2b_img_block1.webp 2x" alt="Problem & Solution — Before / After 遊戲上架流程" loading="lazy" decoding="async" width="2400" height="1208" style="display: block; width: 100%; height: auto;">
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="User Flow" hint-size="100%,400px">
+      <img src="assets/b2b_img_block3-1x.webp" srcset="assets/b2b_img_block3-1x.webp 1x, assets/b2b_img_block3.webp 2x" alt="User Flow — Vendor 與 Official 流程" loading="lazy" decoding="async" width="2400" height="1120" style="display: block; width: 100%; height: auto;">
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="AI Collaboration" hint-size="100%,400px">
+      <img src="assets/b2b_img_block2-1x.webp" srcset="assets/b2b_img_block2-1x.webp 1x, assets/b2b_img_block2.webp 2x" alt="AI Collaboration — 企劃需求、UX / UI Optimization、Design System" loading="lazy" decoding="async" width="2400" height="1180" style="display: block; width: 100%; height: auto;">
+    </dc-import>
+
+
+    <dc-import name="Com_Project_Section" title="UIUX" hint-size="100%,400px">
+      <div style="display: flex; flex-direction: column; gap: clamp(24px, 2.083vw, 40px);">
+      <div style="width: 100%; box-sizing: border-box; padding: 13% 10.6% 15%; display: flex; flex-direction: column; gap: clamp(64px, 6.25vw, 120px); background-color: var(--color-inverted-primary, #000000); background-image: linear-gradient(to right, color-mix(in srgb, var(--color-inverted-second, #424242) 35%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--color-inverted-second, #424242) 35%, transparent) 1px, transparent 1px); background-size: clamp(16px, 1.615vw, 31px) clamp(16px, 1.615vw, 31px); background-position: -1px -1px; border: 2px solid color-mix(in srgb, var(--color-inverted-second, #424242) 60%, transparent); box-shadow: inset 0 0 clamp(10px, 0.938vw, 18px) color-mix(in srgb, var(--color-inverted-second, #424242) 45%, transparent); border-radius: clamp(4px, 0.417vw, 8px); overflow: hidden;">
+      <sc-for list="{{ baBlocks }}" as="b" hint-placeholder-count="2">
+      <div style="display: flex; flex-direction: column; gap: clamp(12px, 1.25vw, 24px);">
+      <div class="h2" style="margin: 0; color: var(--color-second); font-size: clamp(20px, 1.667vw, 32px); line-height: 1.6875;">{{ b.title }}</div>
+      <div style="display: flex; flex-direction: column; gap: clamp(8px, 0.833vw, 16px);">
+      <div style="display: flex; justify-content: space-between; gap: 16px;">
+        <div class="body2" style="margin: 0; color: var(--color-third); font-size: clamp(12px, 0.729vw, 14px); line-height: 1.714;">BEFORE · 企劃規劃</div>
+        <div class="body2" style="margin: 0; color: var(--color-third); font-size: clamp(12px, 0.729vw, 14px); line-height: 1.714;">AFTER · 設計整理</div>
+      </div>
+      <div ref="{{ b.boxRef }}" onPointerDown="{{ b.down }}" onPointerMove="{{ b.move }}" onPointerUp="{{ b.up }}" onPointerCancel="{{ b.up }}" onKeyDown="{{ b.key }}" tabindex="0" role="slider" aria-label="Before / After" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ b.pos }}" style="position: relative; width: 100%; aspect-ratio: {{ b.ratio }}; overflow: hidden; border: 1px solid var(--color-inverted-second); box-sizing: border-box; border-radius: clamp(6px, 0.729vw, 14px); cursor: ew-resize; touch-action: pan-y; user-select: none; outline: none;">
+        <div style="position: absolute; inset: 0; ">
+          <div style="position: absolute; inset: 0; background-size: cover; background-position: center; pointer-events: none; background-image: {{ b.beforeBg }};"></div>
+          <sc-for list="{{ b.beforeBtns }}" as="z" hint-placeholder-count="0">
+            <button type="button" aria-label="{{ z.label }}" onPointerDown="{{ z.stop }}" onClick="{{ z.click }}" style="position: absolute; left: {{ z.left }}; top: {{ z.top }}; width: {{ z.width }}; height: {{ z.height }}; padding: 0; border: 0; border-radius: 4px; background: transparent; cursor: pointer;" style-hover="background: rgba(242, 242, 242, 0.08);"></button>
+          </sc-for>
+        </div>
+        <div ref="{{ b.clipRef }}" style="position: absolute; inset: 0; clip-path: {{ b.clip }};">
+          <div style="position: absolute; inset: 0; background-size: cover; background-position: center; pointer-events: none; background-image: {{ b.afterBg }};"></div>
+          <sc-for list="{{ b.afterBtns }}" as="z" hint-placeholder-count="0">
+            <button type="button" aria-label="{{ z.label }}" onPointerDown="{{ z.stop }}" onClick="{{ z.click }}" style="position: absolute; left: {{ z.left }}; top: {{ z.top }}; width: {{ z.width }}; height: {{ z.height }}; padding: 0; border: 0; border-radius: 4px; background: transparent; cursor: pointer;" style-hover="background: rgba(242, 242, 242, 0.08);"></button>
+          </sc-for>
+        </div>
+        <div ref="{{ b.lineRef }}" style="position: absolute; top: 0; bottom: 0; left: {{ b.left }}; width: 2px; margin-left: -1px; background: var(--color-primary); pointer-events: none;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: clamp(40px, 2.5vw, 48px); height: clamp(40px, 2.5vw, 48px); border-radius: 50%; background: var(--color-primary); color: var(--color-third); display: flex; align-items: center; justify-content: center; gap: 6px; font-family: 'Noto Sans TC', sans-serif; font-size: 16px; line-height: 1; box-shadow: 0 2px 12px rgba(0,0,0,0.35);"><span>‹</span><span>›</span></div>
+        </div>
+      </div>
+      </div>
+      <sc-if value="{{ b.steps }}" hint-placeholder-val="{{ false }}">
+        <div class="body2" style="margin: 0; color: var(--color-second); font-size: clamp(12px, 0.729vw, 14px); line-height: 1.714; text-align: center;">※ 點選上一步、下一步進行頁面切換</div>
+      </sc-if>
+      </div>
+      </sc-for>
+      </div>
+
+      </div>
+    </dc-import>
+
+  </main>
+</div>
+
+<dc-import name="Com_ToTop" tone="dark" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { leaving: false, loaded: false };
+
+  componentDidMount() {
+    const go = () => window.PT ? window.PT.mount(this, { fallback: 4000, hero: true }) : setTimeout(go, 16);
+    go();
+  }
+  componentWillUnmount() { clearTimeout(this._fallback); this._io?.disconnect(); }
+
+  // 步驟按鈕位置（% of 截圖），換版時改這裡
+  BA_BTNS = {
+    after:  [{ d: -1, label: '上一步', left: 1.6, width: 7.3 }, { d: 1, label: '下一步', left: 9.5, width: 7.3 }],
+    before: [{ d: -1, label: '上一步', left: 1.9, width: 7.3 }, { d: 1, label: '下一步', left: [77.4, 70.3, 70.3, 70.3], width: 7.2 }],
+    top: 92.5, height: 5.6
+  };
+  _baRefs = {};
+  baRefs(b) {
+    if (this._baRefs[b.id]) return this._baRefs[b.id];
+    const r = { clip: React.createRef(), line: React.createRef(), box: null };
+    r.box = b.steps ? (el) => {
+      if (!el || this._io) return;
+      this._io = new IntersectionObserver((es) => {
+        if (!es.some(e => e.isIntersecting)) return;
+        b.steps.slice(1).forEach(n => ['before', 'after'].forEach(k => { const i = new Image(); i.src = `assets/b2b_img_block4_${k}${n}${devicePixelRatio > 1 ? '' : '-1x'}.webp`; }));
+        this._io.disconnect();
+      }, { rootMargin: '600px 0px' });
+      this._io.observe(el);
+    } : undefined;
+    return (this._baRefs[b.id] = r);
+  }
+
+  navigate(url) { window.PT ? window.PT.navigate(this, url) : (window.location.href = url); }
+
+
+  baStep(b, d) {
+    this.setState(s => {
+      const cur = (s.baStep || {})[b.id] ?? 0;
+      const nx = Math.max(0, Math.min(b.steps.length - 1, cur + d));
+      return { baStep: { ...(s.baStep || {}), [b.id]: nx } };
+    });
+  }
+  baLive(b, e, refs) {
+    const r = e.currentTarget.getBoundingClientRect();
+    const p = Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100));
+    this._baPos = p;
+    if (refs.clip.current) refs.clip.current.style.clipPath = `inset(0 0 0 ${p}%)`;
+    if (refs.line.current) refs.line.current.style.left = p + '%';
+    e.currentTarget.setAttribute('aria-valuenow', Math.round(p));
+  }
+
+  renderVals() {
+    const set = (n) => `image-set(url("assets/b2b_img_block4_${n}-1x.webp") 1x, url("assets/b2b_img_block4_${n}.webp") 2x)`;
+    return {
+      people: [
+        { avatar: 'assets/uiux_img_user1.webp', name: 'PlayHorny', role: 'Product Planner' }
+      ],
+      software: [
+        { icon: 'assets/uiux_icon_figma.webp', label: 'Figma' },
+        { icon: 'assets/uiux_icon_claude.webp', label: 'Claude Design' }
+      ],
+      goBack: () => this.navigate('Page_UIUX.dc.html'),
+      nav: (url) => this.navigate(url),
+      baBlocks: [
+        { id: 1, title: '後台主頁', ratio: '2400 / 1214' },
+        { id: 2, title: '新增遊戲資料', ratio: '2400 / 1302', steps: [2, 3, 4, 5, 6] }
+      ].map(b => {
+        const pos = (this.state.ba || {})[b.id] ?? 50;
+        const img = b.steps ? b.steps[(this.state.baStep || {})[b.id] ?? 0] : b.id;
+        const refs = this.baRefs(b);
+        const B = this.BA_BTNS;
+        const cur = b.steps ? ((this.state.baStep || {})[b.id] ?? 0) : 0;
+        const btns = (side) => b.steps ? B[side].filter(z => (z.d < 0 ? cur > 0 : cur < b.steps.length - 1)).map(z => ({
+          label: z.label, left: (Array.isArray(z.left) ? z.left[cur] : z.left) + '%', width: z.width + '%', top: B.top + '%', height: B.height + '%',
+          stop: (e) => e.stopPropagation(), click: () => this.baStep(b, z.d)
+        })) : [];
+        return {
+          ...b, pos: Math.round(pos), left: pos + '%', clip: `inset(0 0 0 ${pos}%)`,
+          beforeBg: set('before' + img), afterBg: set('after' + img),
+          beforeBtns: btns('before'), afterBtns: btns('after'),
+          boxRef: refs.box, clipRef: refs.clip, lineRef: refs.line,
+          down: (e) => { this._baDrag = b.id; e.currentTarget.setPointerCapture?.(e.pointerId); this.baLive(b, e, refs); },
+          move: (e) => { if (this._baDrag === b.id) this.baLive(b, e, refs); },
+          up: () => {
+            if (this._baDrag !== b.id) return;
+            this._baDrag = null;
+            const p = this._baPos;
+            this.setState(s => ({ ba: { ...(s.ba || {}), [b.id]: p } }));
+          },
+          key: (e) => {
+            const d = e.key === 'ArrowLeft' ? -5 : e.key === 'ArrowRight' ? 5 : 0;
+            if (d) { e.preventDefault(); this.setState(s => ({ ba: { ...(s.ba || {}), [b.id]: Math.max(0, Math.min(100, ((s.ba || {})[b.id] ?? 50) + d)) } })); }
+          }
+        };
+      }),
+      ...(window.PT ? window.PT.cover(this) : { coverOpacity: 1, coverPointer: 'auto', leaveOpacity: 0, coverBg: '#1B1C20' })
+    };
+  }
+}
+</script>
+</body>
+</html>

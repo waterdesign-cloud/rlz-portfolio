@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+</helmet>
+<div style="display: flex; flex-direction: column; color: var(--color-primary, #F2F2F2);">
+  <section data-screen-label="Project / Title" style="padding-top: clamp(96px, 8.333vw, 160px); display: flex; flex-direction: column; align-items: flex-start; gap: clamp(8px, 0.833vw, 16px);">
+    <a href="{{ backHref }}" onClick="{{ back }}" class="body1" style="display: inline-flex; align-items: center; gap: 0.6em; font-size: clamp(14px, 0.833vw, 16px); line-height: 2; color: var(--color-primary, #F2F2F2); text-decoration: none; transition: color 200ms ease;" style-hover="color: var(--color-second, #A7A7A7);"><svg width="2.4em" height="0.7em" viewBox="0 0 38 10" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><line x1="1" y1="5" x2="37" y2="5"></line><polyline points="5,1 1,5 5,9"></polyline></svg>Back</a>
+    <div style="display: flex; flex-wrap: wrap; align-items: baseline; column-gap: clamp(16px, 1.25vw, 24px); row-gap: 4px;">
+    <h1 class="h1" style="margin: 0; font-weight: 200; display: flex; flex-wrap: wrap; align-items: center; gap: 0.35em; font-size: clamp(32px, 2.5vw, 48px); line-height: 1.5; color: var(--color-primary, #F2F2F2);"><span>{{ brand }}</span><sc-if value="{{ hasSubtitle }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="display: block; width: 1px; height: 0.9em; background: currentColor;"></span><span>{{ subtitle }}</span></sc-if></h1>
+    <sc-if value="{{ hasLink }}" hint-placeholder-val="{{ false }}">
+      <a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="body1" style="display: inline-flex; align-items: center; gap: 0.4em; font-size: clamp(14px, 0.833vw, 16px); line-height: 2; color: var(--color-second, #A7A7A7); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color 200ms ease;" style-hover="color: var(--color-primary, #F2F2F2);">{{ linkLabel }}<svg width="0.75em" height="0.75em" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="display: block; transform: translateY(0.12em);"><line x1="2" y1="10" x2="10" y2="2"></line><polyline points="4,2 10,2 10,8"></polyline></svg></a>
+    </sc-if>
+    </div>
+  </section>
+
+  <div data-screen-label="Project / Intro" style="display: flex; flex-direction: column; gap: clamp(60px, 6.25vw, 120px); margin-bottom: clamp(200px, 12.5vw, 240px);">
+    <sc-if value="{{ noQuote }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="height: 0;"></div></sc-if>
+    <sc-if value="{{ hasQuote }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Project / Quote" style="padding-top: clamp(72px, 6.25vw, 120px); display: flex; flex-direction: column; gap: clamp(24px, 2.083vw, 40px);">
+      <div style="display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: clamp(20px, 1.458vw, 28px); align-items: start;">
+        <img src="assets/uiux_icon_quote.svg" alt="" style="display: block; width: clamp(16.5px, 1.146vw, 22px); height: clamp(12px, 0.833vw, 16px); margin-top: 0.6em;">
+        <p class="h2" style="font-weight: 200; margin: 0; font-size: clamp(22px, 1.667vw, 32px); line-height: 1.6875; color: var(--color-second, #A7A7A7); text-wrap: pretty;">{{ quote }}</p>
+        <img src="assets/uiux_icon_quote.svg" alt="" style="display: block; align-self: end; width: clamp(16.5px, 1.146vw, 22px); height: clamp(12px, 0.833vw, 16px); margin-bottom: 0.6em; transform: rotate(180deg);">
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: clamp(36px, 3.125vw, 60px); padding-left: clamp(36px, 2.8125vw, 54px);">
+        <sc-for list="{{ people }}" as="p" hint-placeholder-count="2">
+          <div style="display: flex; align-items: center; gap: clamp(14px, 1.042vw, 20px);">
+            <sc-if value="{{ p.avatar }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ p.avatar }}" alt="" style="display: block; width: clamp(44px, 2.917vw, 56px); height: clamp(44px, 2.917vw, 56px); flex: 0 0 clamp(44px, 2.917vw, 56px); border-radius: 50%; object-fit: cover;">
+            </sc-if>
+            <sc-if value="{{ p.noAvatar }}" hint-placeholder-val="{{ true }}">
+              <div style="width: clamp(44px, 2.917vw, 56px); height: clamp(44px, 2.917vw, 56px); flex: 0 0 clamp(44px, 2.917vw, 56px); border-radius: 50%; background: var(--color-inverted-second, #424242);"></div>
+            </sc-if>
+            <div style="display: flex; flex-direction: column;">
+              <span class="body1" style="font-size: clamp(14px, 0.833vw, 16px); line-height: 2; color: var(--color-primary, #F2F2F2);">{{ p.name }}</span>
+              <span class="body2" style="font-size: clamp(12px, 0.729vw, 14px); line-height: 1.714; color: var(--color-second, #A7A7A7);">{{ p.role }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <section data-screen-label="Project / Overview" style="display: flex; flex-wrap: wrap; column-gap: clamp(48px, 5.208vw, 100px); row-gap: 48px; padding-left: clamp(36px, 3.125vw, 60px);">
+      <div style="flex: 0 1 clamp(360px, 27.083vw, 520px); min-width: 0; display: flex; flex-direction: column; gap: clamp(14px, 1.042vw, 20px);">
+        <h2 class="h2" style="font-weight: 200; margin: 0; font-size: clamp(22px, 1.667vw, 32px); line-height: 1.6875; color: var(--color-primary, #F2F2F2);">About</h2>
+        <p class="body1" style="margin: 0; font-size: clamp(14px, 0.833vw, 16px); line-height: 2; color: var(--color-second, #A7A7A7); text-wrap: pretty; white-space: pre-line;">{{ about }}</p>
+      </div>
+      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: clamp(14px, 1.042vw, 20px);">
+        <h2 class="h2" style="font-weight: 200; margin: 0; font-size: clamp(22px, 1.667vw, 32px); line-height: 1.6875; color: var(--color-primary, #F2F2F2);">Project</h2>
+        <div style="display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(18px, 1.354vw, 26px); align-items: start;">
+          <div style="display: grid; grid-template-columns: auto auto; justify-content: start; justify-items: start; align-items: center; column-gap: 8px; row-gap: 12px;">
+            <sc-for list="{{ tags }}" as="t" hint-placeholder-count="3">
+              <span class="body2" style="display: inline-flex; align-items: center; padding: 0.5em 1.8em; border: 1px solid var(--color-third, #4A4850); border-radius: 999px; font-size: clamp(12px, 0.729vw, 14px); line-height: 1.714; color: var(--color-second, #A7A7A7); white-space: nowrap;">{{ t }}</span>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <div class="body1" style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.35em; font-size: clamp(14px, 0.833vw, 16px); line-height: 2; color: var(--color-second, #A7A7A7);"><span>Category /</span><span style="color: var(--color-primary, #F2F2F2);">{{ category }}</span></div>
+            <div class="body1" style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.35em; font-size: clamp(14px, 0.833vw, 16px); line-height: 2; color: var(--color-second, #A7A7A7);"><span>Software /</span>
+              <sc-for list="{{ software }}" as="s" hint-placeholder-count="2">
+                <span style="display: inline-flex; align-items: center; gap: 0.35em; color: var(--color-primary, #F2F2F2);"><sc-if value="{{ s.icon }}" hint-placeholder-val="{{ false }}"><img src="{{ s.icon }}" alt="" style="display: block; width: 1em; height: 1em; object-fit: contain;"></sc-if><span>{{ s.label }}</span></span>
+              </sc-for>
+            </div>
+            <div class="body1" style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.35em; font-size: clamp(14px, 0.833vw, 16px); line-height: 2; color: var(--color-second, #A7A7A7);"><span>Device /</span><span style="color: var(--color-primary, #F2F2F2);">{{ device }}</span></div>
+            <div class="body1" style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.35em; font-size: clamp(14px, 0.833vw, 16px); line-height: 2; color: var(--color-second, #A7A7A7);"><span>Date /</span><span style="color: var(--color-primary, #F2F2F2);">{{ date }}</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1440px&quot;,&quot;height&quot;:&quot;1100px&quot;},&quot;brand&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Project&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;subtitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Subtitle&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;quote&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;about&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;tags&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;UI Design, UX Design&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;category&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;device&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;date&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;people&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{avatar?: string, name: string, role: string}[]&quot;},&quot;software&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{icon?: string, label: string}[]&quot;},&quot;backHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Page_UIUX.dc.html&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;onBack&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(e) =&gt; void&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const tags = Array.isArray(p.tags) ? p.tags : String(p.tags ?? '').split(',').map(s => s.trim()).filter(Boolean);
+    return {
+      backHref: p.backHref ?? 'Page_UIUX.dc.html',
+      back: (e) => { if (p.onBack) { e.preventDefault(); p.onBack(e); } },
+      brand: p.brand ?? 'Project',
+      subtitle: p.subtitle ?? '',
+      hasSubtitle: !!p.subtitle,
+      link: p.link ?? '',
+      hasLink: !!p.link,
+      linkLabel: String(p.link ?? '').replace(/^https?:\/\//, '').replace(/\/$/, ''),
+      quote: p.quote ?? '',
+      hasQuote: !!p.quote,
+      noQuote: !p.quote,
+      people: (p.people ?? []).map(x => ({ ...x, noAvatar: !x.avatar })),
+      about: p.about ?? '',
+      tags,
+      category: p.category ?? '',
+      software: p.software ?? [],
+      device: p.device ?? '',
+      date: p.date ?? ''
+    };
+  }
+}
+</script>
+</body>
+</html>

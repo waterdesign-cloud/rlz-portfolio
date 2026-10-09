@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html style="background: #ebebeb;">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work File｜RLZ's Portfolio</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RLZ's Portfolio">
+<meta property="og:title" content="Work File｜RLZ's Portfolio">
+<meta property="og:image" content="assets/og_cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style id="preload-bg">html, body { margin: 0; background: #ebebeb; } @view-transition { navigation: auto; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; }</style>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+<script src="page-transition.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #ebebeb; }
+  a { color: var(--color-third, #4A4850); text-decoration: none; }
+  a:hover { color: var(--color-second, #A7A7A7); }
+  @keyframes wfFolderIn { from { opacity: 0; translate: -60px 0; } to { opacity: 1; translate: 0 0; } }
+  @keyframes wfTextIn { from { opacity: 0; translate: 0 32px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes wfBunnyIn { 0% { opacity: 0; scale: 0.4; } 70% { opacity: 1; scale: 1.08; } 100% { opacity: 1; scale: 1; } }
+</style>
+</helmet>
+
+<div style="position: fixed; inset: 0; z-index: 100; background: #ebebeb; opacity: {{ coverOpacity }}; pointer-events: {{ coverPointer }}; transition: opacity 420ms ease-out;"></div>
+
+<section data-screen-label="Workfile / Intro" style="position: relative; width: 100%; min-height: 100vh; overflow: hidden; font-family: 'Noto Sans TC', sans-serif; background-image: url('assets/common_img_pattern.webp'); background-repeat: repeat; background-size: 250px 250px;">
+
+  <div aria-hidden="true" style="height: 108px;"></div>
+  <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 70;"><dc-import name="Com_Nav" current="about" on-navigate="{{ nav }}" hint-size="100%,108px"></dc-import></div>
+
+  <div style="position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.96fr); align-items: start; gap: clamp(24px, 4vw, 72px); padding: clamp(12px, 2vh, 28px) clamp(20px, 3vw, 48px) clamp(28px, 5vh, 64px) 0;">
+
+    <div style="position: relative; width: 140%; animation: wfFolderIn 1000ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both; animation-play-state: {{ wfPlay }}; margin-left: clamp(-320px, -19vw, -120px);">
+      <img src="assets/workfile_img_emoji_03.webp" alt="" style="animation: wfBunnyIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) 1350ms both; animation-play-state: {{ wfPlay }}; position: absolute; width: clamp(80px, 8.4vw, 126px); height: auto; z-index: 5; pointer-events: none; left: 91.1%; top: 13.2%; transform: scaleX(-1);">
+      <img src="assets/workfile_img_workfile.webp" alt="WORK FILE — 個人資料夾" style="position: relative; z-index: 1; display: block; width: 100%; height: auto; filter: drop-shadow(16px 20px 30px rgba(60, 62, 58, 0.26));">
+      <img src="assets/workfile_img_emoji_05.webp" alt="" style="animation: wfBunnyIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) 1510ms both; animation-play-state: {{ wfPlay }}; position: absolute; left: 36.8%; top: 85%; width: clamp(84px, 9vw, 134px); height: auto; z-index: 2; pointer-events: none;">
+      <img src="assets/workfile_img_emoji_01.webp" alt="" style="animation: wfBunnyIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) 1830ms both; animation-play-state: {{ wfPlay }}; position: absolute; left: 73.9%; top: 110%; width: clamp(80px, 8.4vw, 126px); height: auto; z-index: 4; pointer-events: none; transform: rotate(20deg);">
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: clamp(34px, 3.8vw, 56px); position: relative; z-index: 3; animation: wfTextIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 650ms both; animation-play-state: {{ wfPlay }}; padding: clamp(22px, 2.6vw, 44px) clamp(40px, calc(2.4vw + 20px), 60px); backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); border-radius: 4px; color: var(--color-inverted-second, #424242); background-color: #D7D7D74D">
+
+      <section style="display: flex; flex-direction: column; gap: clamp(12px, calc(1.067vw + 4px), 20px);">
+        <h2 class="h1" style="margin: 0; font-size: clamp(32px, 2.5vw, 48px); line-height: 1.5; color: var(--color-inverted-primary, #000000);">About Me</h2>
+        <p class="body1" style="margin: 0; font-size: clamp(14px, 0.833vw, 16px); line-height: 2; text-wrap: pretty;">現為一名 UI/UX 設計師，曾參與 Web 與 App 的專案，專案內容包含遊戲活動頁、公司形象官網與 App 介面。<br>在理解專案的過程中釐清需求與方向，將複雜的需求轉換成簡單、好理解的設計，並在視覺與使用體驗之間取得平衡。<br>在團隊合作上，發現流程中有可以改善的地方時，會主動提出不同的合作方式，與團隊一起討論，讓專案能更順利地進行。</p>
+      </section>
+
+      <section style="position: relative; display: flex; flex-direction: column; gap: clamp(12px, calc(1.067vw + 4px), 20px);">
+        <h2 class="h1" style="margin: 0; font-size: clamp(32px, 2.5vw, 48px); line-height: 1.5; color: var(--color-inverted-primary, #000000);">Work Experience</h2>
+        <img src="assets/workfile_img_emoji_08.webp" alt="" style="animation: wfBunnyIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) 1670ms both; animation-play-state: {{ wfPlay }}; position: absolute; width: clamp(78px, 8vw, 120px); height: auto; z-index: 4; pointer-events: none; top: -25px; right: calc(2% - clamp(40px, calc(2.4vw + 20px), 60px)); transform: scaleX(-1) rotate(10deg);">
+        <div style="display: flex; flex-direction: column; gap: clamp(16px, 1.8vw, 28px);">
+          <sc-for list="{{ experience }}" as="x" hint-placeholder-count="4">
+            <div style="display: grid; grid-template-columns: 18% minmax(0, 1fr); column-gap: clamp(14px, 1.8vw, 32px); align-items: start;">
+              <div class="body2" style="font-size: clamp(14px, 0.833vw, 16px); line-height: 2.1; color: var(--color-inverted-second, #424242); white-space: nowrap; font-weight: 400;"><span style="display: inline-block; width: 2.6em;">{{ x.toM }}</span>{{ x.toY }}<span style="margin-left: 0.5em;">–</span><br><span style="display: inline-block; width: 2.6em;">{{ x.fromM }}</span>{{ x.fromY }}</div>
+              <div style="display: flex; flex-direction: column;">
+                <div class="body1" style="font-weight: 400; font-size: clamp(14px, 0.833vw, 16px); line-height: calc(2.1 * clamp(14px, 0.833vw, 16px)); color: var(--color-inverted-primary, #000000); text-wrap: pretty;">{{ x.company }}</div>
+                <div class="body2" style="font-size: clamp(12px, 0.729vw, 14px); line-height: calc(2.1 * clamp(14px, 0.833vw, 16px)); color: var(--color-inverted-second, #424242);">{{ x.role }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: clamp(12px, calc(1.067vw + 4px), 20px);">
+        <h2 class="h1" style="margin: 0; font-size: clamp(32px, 2.5vw, 48px); line-height: 1.5; color: var(--color-inverted-primary, #000000);">Software</h2>
+        <div style="display: flex; flex-direction: column; gap: clamp(10px, 1.1vw, 16px);">
+          <sc-for list="{{ software }}" as="g" hint-placeholder-count="2">
+            <div style="display: grid; grid-template-columns: 18% minmax(0, 1fr); column-gap: clamp(14px, 1.8vw, 32px); align-items: start;">
+              <div class="body2" style="font-size: clamp(14px, 0.833vw, 16px); line-height: 2.1; color: var(--color-inverted-second, #424242); white-space: nowrap; font-weight: 400;">{{ g.group }}</div>
+              <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-height: calc(2.1 * clamp(14px, 0.833vw, 16px));">
+                <sc-for list="{{ g.tools }}" as="t" hint-placeholder-count="3">
+                  <span class="body1" style="display: inline-flex; align-items: center; padding: 0.15em 0.6em; border: 1px solid var(--color-inverted-second, #424242); border-radius: 6px; font-size: clamp(14px, 0.833vw, 16px); line-height: 1.6; color: var(--color-inverted-primary, #000000); white-space: nowrap;">{{ t }}</span>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">class Component extends DCLogic {
+  state = { leaving: false, loaded: false };
+
+  componentDidMount() {
+    const go = () => window.PT ? window.PT.mount(this, { fallback: 6000 }) : setTimeout(go, 16);
+    go();
+  }
+  componentWillUnmount() { clearTimeout(this._fallback); }
+
+  navigate(url) {
+    if (window.PT) window.PT.navigate(this, url); else window.location.href = url;
+  }
+
+
+  renderVals() {
+    const { leaving, loaded } = this.state;
+    const covered = leaving || !loaded;
+    return {
+      experience: [
+        { fromM: 'Jul', fromY: '2023', toM: 'Sep', toY: '2026', company: '瑟菈數位科技股份有限公司', role: '網頁設計師' },
+        { fromM: 'Oct', fromY: '2020', toM: 'Jun', toY: '2023', company: '好玩整合行銷有限公司', role: '平面設計｜進駐臺灣漫畫基地' },
+        { fromM: 'Apr', fromY: '2019', toM: 'Jul', toY: '2020', company: '冉色斯動畫股份有限公司', role: '平面設計師' },
+        { fromM: 'Sep', fromY: '2018', toM: 'Mar', toY: '2019', company: '日商艾鳴網路遊戲股份有限公司台灣分公司', role: '3D 美術設計師' }
+      ],
+      software: [
+        { group: 'Design', tools: ['Figma', 'Photoshop', 'Illustrator'] },
+        { group: 'AI Workflow', tools: ['ChatGPT', 'Claude'] }
+      ],
+      nav: (url) => this.navigate(url),
+      coverOpacity: covered ? 1 : 0,
+      coverPointer: covered ? 'auto' : 'none',
+      wfPlay: loaded ? 'running' : 'paused'
+    };
+  }
+}</script>
+</body>
+</html>

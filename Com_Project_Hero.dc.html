@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+</helmet>
+<section data-screen-label="Project / Hero" style="position: relative; width: 100%; height: max(500px, 31.25vw); background: #1B1C20; overflow: hidden;">
+  <sc-if value="{{ hasSrc }}" hint-placeholder-val="{{ false }}">
+    <img data-enter="hero" src="{{ src }}" srcset="{{ srcset }}" sizes="max(100vw, 1600px)" alt="{{ alt }}" fetchpriority="high" width="3840" height="1200" style="position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center;">
+  </sc-if>
+  <sc-if value="{{ noSrc }}" hint-placeholder-val="{{ false }}">
+    <div data-enter="hero" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: var(--color-inverted-second, #424242); font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #A7A7A7;">Hero 主視覺 3840×1200</div>
+  </sc-if>
+  {{ children }}
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1440px&quot;,&quot;height&quot;:&quot;500px&quot;},&quot;src&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;src1x&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;alt&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;主視覺&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;children&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;ReactNode&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const src = this.props.src || '';
+    const src1x = this.props.src1x || '';
+    return {
+      hasSrc: !!src, noSrc: !src,
+      src: src1x || src,
+      srcset: src1x ? `${src1x} 1920w, ${src} 3840w` : `${src} 3840w`,
+      alt: this.props.alt ?? '主視覺'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": []
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Noto Sans TC))/i]",
+        "message": "Font not provided by the design system. Available: Noto Sans TC."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--color-primary",
+      "--color-second",
+      "--color-third",
+      "--font-family-base",
+      "--font-size-body1",
+      "--font-size-body2",
+      "--font-size-h1",
+      "--font-size-h2",
+      "--font-weight-light",
+      "--letter-spacing-base",
+      "--line-height-body1",
+      "--line-height-body2",
+      "--line-height-h1",
+      "--line-height-h2"
+    ],
+    "tokenKinds": {
+      "--font-family-base": "font",
+      "--font-weight-light": "font",
+      "--letter-spacing-base": "font",
+      "--font-size-h1": "font",
+      "--line-height-h1": "font",
+      "--font-size-h2": "font",
+      "--line-height-h2": "font",
+      "--font-size-body1": "font",
+      "--line-height-body1": "font",
+      "--font-size-body2": "font",
+      "--line-height-body2": "font",
+      "--color-primary": "color",
+      "--color-second": "color",
+      "--color-third": "color"
+    },
+    "fontFamilies": [
+      "Noto Sans TC"
+    ]
+  }
+}

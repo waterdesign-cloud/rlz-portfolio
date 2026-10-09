@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html style="background: #1B1C20;">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PH 遊戲內儲值體驗｜RLZ's Portfolio</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RLZ's Portfolio">
+<meta property="og:title" content="PH 遊戲內儲值體驗｜RLZ's Portfolio">
+<meta property="og:image" content="assets/og_cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="dark">
+<style id="preload-bg">html, body { margin: 0; background: #1B1C20; } @view-transition { navigation: auto; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; }</style>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+<script src="page-transition.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #1B1C20; }
+  a { color: #F2F2F2; text-decoration: none; }
+  a:hover { color: #A7A7A7; }
+</style>
+</helmet>
+
+<div style="position: fixed; inset: 0; z-index: 100; background: #1B1C20; opacity: {{ coverOpacity }}; pointer-events: {{ coverPointer }}; transition: opacity 420ms ease-out;"></div>
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: 101; pointer-events: none; background: {{ coverBg }}; opacity: {{ leaveOpacity }}; transition: opacity 300ms ease-out;"></div>
+
+<div style="background: #1B1C20; color: var(--color-primary, #F2F2F2);">
+
+  <dc-import name="Com_Project_Hero" src="assets/game_img_cover.webp" src1x="assets/game_img_cover-1x.webp" alt="PlayHorny 主視覺" hint-size="100%,500px">
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 70;"><dc-import name="Com_Nav" current="" tone="dark" on-navigate="{{ nav }}" hint-size="100%,108px"></dc-import></div>
+  </dc-import>
+
+  <main style="box-sizing: border-box; width: 100%; max-width: calc(min(1460px, max(76.04vw, 720px)) + 2 * clamp(20px, 4vw, 64px)); margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px) clamp(200px, 18vh, 300px); display: flex; flex-direction: column;">
+
+    <dc-import name="Com_Project_Head" brand="PlayHorny" subtitle="遊戲內儲值體驗" quote="希望 PlayHorny 的遊戲內儲值服務可以再簡單、直覺一點，讓玩家更容易看懂儲值方案和回饋，也能更順暢地完成付款。" about="PlayHorny 平台提供遊戲下載、點數儲值、派對卡（會員）訂閱、商城及遊戲宣傳活動等完整的遊戲服務。
+本專案聚焦於 PlayHorny 提供的遊戲內儲值體驗，涵蓋派對卡（會員）訂閱、點數儲值與付款流程。" tags="UI Design, Design System, UX Design" category="In-Game Commerce" device="Portrait &amp; Landscape" date="2025 ~ 2026" people="{{ people }}" software="{{ software }}" on-back="{{ goBack }}" hint-size="100%,1100px"></dc-import>
+
+    <dc-import name="Com_Project_Section" title="Problem &amp; Solution" first="true" hint-size="100%,400px">
+      <img src="assets/uiux_img_block1-1x.webp" srcset="assets/uiux_img_block1-1x.webp 1x, assets/uiux_img_block1.webp 2x" alt="Problem & Solution — Before / Decision / After 與設計思考" loading="lazy" decoding="async" width="2400" height="2570" style="display: block; width: 100%; height: auto;">
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="Work Flow" hint-size="100%,400px">
+      <div style="display: grid; grid-template-columns: minmax(0, 932fr) minmax(0, 1436fr); gap: clamp(8px, 0.833vw, 16px); align-items: start;">
+        <img src="assets/game_img_block2-1-1x.webp" srcset="assets/game_img_block2-1-1x.webp 1x, assets/game_img_block2-1.webp 2x" alt="Work Flow — 企劃、設計、工程" loading="lazy" decoding="async" width="932" height="1408" style="display: block; width: 100%; height: auto;">
+        <img src="assets/game_img_block2-2-1x.webp" srcset="assets/game_img_block2-2-1x.webp 1x, assets/game_img_block2-2.webp 2x" alt="Work Flow — Design System、Design Review、UI / UX" loading="lazy" decoding="async" width="1436" height="1408" style="display: block; width: 100%; height: auto;">
+      </div>
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="AI Collaboration" hint-size="100%,400px">
+      <div style="display: grid; grid-template-columns: minmax(0, 1184fr) minmax(0, 1184fr); gap: clamp(8px, 0.833vw, 16px); align-items: start;">
+        <img src="assets/game_img_block3-1-1x.webp" srcset="assets/game_img_block3-1-1x.webp 1x, assets/game_img_block3-1.webp 2x" alt="AI Collaboration — Claude Design" loading="lazy" decoding="async" width="1184" height="1796" style="display: block; width: 100%; height: auto;">
+        <img src="assets/game_img_block3-2-1x.webp" srcset="assets/game_img_block3-2-1x.webp 1x, assets/game_img_block3-2.webp 2x" alt="AI Collaboration — Claude + MCP" loading="lazy" decoding="async" width="1184" height="1796" style="display: block; width: 100%; height: auto;">
+      </div>
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="Design System" hint-size="100%,400px">
+      <img src="assets/game_img_block6-1x.webp" srcset="assets/game_img_block6-1x.webp 1x, assets/game_img_block6.webp 2x" alt="Design System — Design Token、Component、UI" loading="lazy" decoding="async" width="2400" height="1454" style="display: block; width: 100%; height: auto;">
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="UIUX" hint-size="100%,400px">
+      <div style="display: flex; flex-direction: column; gap: clamp(24px, 2.083vw, 40px);">
+      <div style="display: flex; flex-direction: column; gap: clamp(8px, 0.833vw, 16px);">
+      <div style="display: grid; grid-template-columns: minmax(0, 1184fr) minmax(0, 1184fr); gap: clamp(8px, 0.833vw, 16px); align-items: start;">
+        <img src="assets/game_img_block4-1-1x.webp" srcset="assets/game_img_block4-1-1x.webp 1x, assets/game_img_block4-1.webp 2x" alt="UIUX — 儲值中心 說明" loading="lazy" decoding="async" width="1184" height="1408" style="display: block; width: 100%; height: auto;">
+        <img src="assets/game_img_block4-2-1x.webp" srcset="assets/game_img_block4-2-1x.webp 1x, assets/game_img_block4-2.webp 2x" alt="UIUX — 儲值商品卡" loading="lazy" decoding="async" width="1184" height="1408" style="display: block; width: 100%; height: auto;">
+      </div>
+      <img src="assets/game_img_block4-3-1x.webp" srcset="assets/game_img_block4-3-1x.webp 1x, assets/game_img_block4-3.webp 2x" alt="UIUX — 儲值中心 手機畫面" loading="lazy" decoding="async" width="2400" height="1274" style="display: block; width: 100%; height: auto;">
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: clamp(8px, 0.833vw, 16px);">
+        <div style="display: grid; grid-template-columns: minmax(0, 1184fr) minmax(0, 1184fr); gap: clamp(8px, 0.833vw, 16px); align-items: start;">
+          <img src="assets/game_img_block4-4-1x.webp" srcset="assets/game_img_block4-4-1x.webp 1x, assets/game_img_block4-4.webp 2x" alt="UIUX — 購買派對卡 說明" loading="lazy" decoding="async" width="1184" height="1408" style="display: block; width: 100%; height: auto;">
+          <img src="assets/game_img_block4-5-1x.webp" srcset="assets/game_img_block4-5-1x.webp 1x, assets/game_img_block4-5.webp 2x" alt="UIUX — 購買派對卡 手機畫面" loading="lazy" decoding="async" width="1184" height="1408" style="display: block; width: 100%; height: auto;">
+        </div>
+        <img src="assets/game_img_block4-6-1x.webp" srcset="assets/game_img_block4-6-1x.webp 1x, assets/game_img_block4-6.webp 2x" alt="UIUX — 付款流程畫面" loading="lazy" decoding="async" width="2400" height="2328" style="display: block; width: 100%; height: auto;">
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: clamp(8px, 0.833vw, 16px);">
+        <div style="display: grid; grid-template-columns: minmax(0, 1184fr) minmax(0, 1184fr); gap: clamp(8px, 0.833vw, 16px); align-items: start;">
+          <img src="assets/game_img_block4-7-1x.webp" srcset="assets/game_img_block4-7-1x.webp 1x, assets/game_img_block4-7.webp 2x" alt="UIUX — 派對卡福利 說明" loading="lazy" decoding="async" width="1184" height="1408" style="display: block; width: 100%; height: auto;">
+          <img src="assets/game_img_block4-8-1x.webp" srcset="assets/game_img_block4-8-1x.webp 1x, assets/game_img_block4-8.webp 2x" alt="UIUX — 派對卡福利 手機畫面" loading="lazy" decoding="async" width="1184" height="1408" style="display: block; width: 100%; height: auto;">
+        </div>
+        <img src="assets/game_img_block4-9-1x.webp" srcset="assets/game_img_block4-9-1x.webp 1x, assets/game_img_block4-9.webp 2x" alt="UIUX — 會員等級 手機畫面" loading="lazy" decoding="async" width="2400" height="1410" style="display: block; width: 100%; height: auto;">
+      </div>
+      </div>
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="Portrait" hint-size="100%,400px">
+      <div style="display: flex; flex-direction: column; gap: clamp(8px, 0.833vw, 16px);">
+        <div style="display: grid; grid-template-columns: minmax(0, 1184fr) minmax(0, 1184fr); gap: clamp(8px, 0.833vw, 16px); align-items: start;">
+          <img src="assets/game_img_block5-1-1x.webp" srcset="assets/game_img_block5-1-1x.webp 1x, assets/game_img_block5-1.webp 2x" alt="Portrait — 儲值中心 直式手機畫面" loading="lazy" decoding="async" width="1184" height="1144" style="display: block; width: 100%; height: auto;">
+          <img src="assets/game_img_block5-2-1x.webp" srcset="assets/game_img_block5-2-1x.webp 1x, assets/game_img_block5-2.webp 2x" alt="Portrait — 派對卡福利 直式手機畫面" loading="lazy" decoding="async" width="1184" height="1144" style="display: block; width: 100%; height: auto;">
+        </div>
+        <img src="assets/game_img_block5-3-1x.webp" srcset="assets/game_img_block5-3-1x.webp 1x, assets/game_img_block5-3.webp 2x" alt="Portrait — 多頁直式畫面總覽" loading="lazy" decoding="async" width="2400" height="1320" style="display: block; width: 100%; height: auto;">
+      </div>
+    </dc-import>
+  </main>
+</div>
+
+<dc-import name="Com_ToTop" tone="dark" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { leaving: false, loaded: false };
+
+  componentDidMount() {
+    const go = () => window.PT ? window.PT.mount(this, { fallback: 4000, hero: true }) : setTimeout(go, 16);
+    go();
+  }
+  componentWillUnmount() { clearTimeout(this._fallback); }
+
+  navigate(url) { window.PT ? window.PT.navigate(this, url) : (window.location.href = url); }
+
+
+  renderVals() {
+    return {
+      people: [
+        { avatar: 'assets/uiux_img_user1.webp', name: 'PlayHorny', role: 'Product Planner' },
+        { avatar: 'assets/uiux_img_user2.webp', name: 'PlayHorny', role: 'Designer' }
+      ],
+      software: [
+        { icon: 'assets/uiux_icon_figma.webp', label: 'Figma' },
+        { icon: 'assets/uiux_icon_claude.webp', label: 'Claude Design' }
+      ],
+      goBack: () => this.navigate('Page_UIUX.dc.html'),
+      nav: (url) => this.navigate(url),
+      ...(window.PT ? window.PT.cover(this) : { coverOpacity: 1, coverPointer: 'auto', leaveOpacity: 0, coverBg: '#1B1C20' })
+    };
+  }
+}
+</script>
+</body>
+</html>

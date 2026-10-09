@@ -1,0 +1,57 @@
+:root {
+  /* Typography — Noto Sans TC / Light 300 / letter-spacing 0% */
+  --font-family-base: "Noto Sans TC", sans-serif;
+  --font-weight-light: 300;
+  --letter-spacing-base: 0%;
+
+  --font-size-h1: 48px;
+  --line-height-h1: 72px;
+
+  --font-size-h2: 32px;
+  --line-height-h2: 54px;
+
+  --font-size-body1: 16px;
+  --line-height-body1: 32px;
+
+  --font-size-body2: 14px;
+  --line-height-body2: 24px;
+
+  /* Colors */
+  --color-primary: #F2F2F2;
+  --color-second: #A7A7A7;
+  --color-third: #4A4850;
+  --color-inverted-primary: #000000;
+  --color-inverted-second: #424242;
+}
+
+h1, .h1 {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-base);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+h2, .h2 {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-base);
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+}
+
+.body1 {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-base);
+  font-size: var(--font-size-body1);
+  line-height: var(--line-height-body1);
+}
+
+.body2 {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-base);
+  font-size: var(--font-size-body2);
+  line-height: var(--line-height-body2);
+}

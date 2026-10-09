@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html style="background: #1B1C20;">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>時空心語 Valkyrieheart｜RLZ's Portfolio</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RLZ's Portfolio">
+<meta property="og:title" content="時空心語 Valkyrieheart｜RLZ's Portfolio">
+<meta property="og:image" content="assets/og_cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="dark">
+<style id="preload-bg">html, body { margin: 0; background: #1B1C20; } @view-transition { navigation: auto; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; }</style>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+<script src="page-transition.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #1B1C20; }
+  a { color: #F2F2F2; text-decoration: none; }
+  a:hover { color: #A7A7A7; }
+</style>
+</helmet>
+
+<div style="position: fixed; inset: 0; z-index: 100; background: #1B1C20; opacity: {{ coverOpacity }}; pointer-events: {{ coverPointer }}; transition: opacity 420ms ease-out;"></div>
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: 101; pointer-events: none; background: {{ coverBg }}; opacity: {{ leaveOpacity }}; transition: opacity 300ms ease-out;"></div>
+
+<div style="background: #1B1C20; color: var(--color-primary, #F2F2F2);">
+
+  <dc-import name="Com_Project_Hero" src="assets/vk_img_cover.webp" src1x="assets/vk_img_cover-1x.webp" alt="時空心語 Valkyrieheart 主視覺" hint-size="100%,500px">
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 70;"><dc-import name="Com_Nav" current="" tone="dark" on-navigate="{{ nav }}" hint-size="100%,108px"></dc-import></div>
+  </dc-import>
+
+  <main style="box-sizing: border-box; width: 100%; max-width: calc(min(1460px, max(76.04vw, 720px)) + 2 * clamp(20px, 4vw, 64px)); margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px) clamp(200px, 18vh, 300px); display: flex; flex-direction: column;">
+
+    <dc-import name="Com_Project_Head" brand="時空心語 Valkyrieheart" link="https://www.valkyrieheart.com/" about="作為芙蕾雅寄予厚望的女武神，妳將背負起九界的命運，穿越一個又一個時空縫隙，喚醒沉睡的心語，聆聽命運的迴響，忠誠且勇敢無懼的英靈將伸手回應 ..." tags="UI Design, Design System, UX Design, Visual" category="Brand Website" device="Desktop &amp; Mobile" date="2025" software="{{ software }}" on-back="{{ goBack }}" hint-size="100%,1100px"></dc-import>
+
+    <dc-import name="Com_Project_Section" title="Showcase" hide-title="true" first="true" hint-size="100%,400px">
+      <div style="display: flex; flex-direction: column; gap: clamp(8px, 0.833vw, 16px);">
+        <div style="display: grid; grid-template-columns: minmax(0, 1184fr) minmax(0, 1184fr); gap: clamp(8px, 0.833vw, 16px); align-items: start;">
+          <img src="assets/vk_img_block1-1-1x.webp" srcset="assets/vk_img_block1-1-1x.webp 1x, assets/vk_img_block1-1.webp 2x" alt="時空心語 手機版 預約心動" loading="lazy" decoding="async" width="1184" height="1144" style="display: block; width: 100%; height: auto;">
+          <img src="assets/vk_img_block1-2-1x.webp" srcset="assets/vk_img_block1-2-1x.webp 1x, assets/vk_img_block1-2.webp 2x" alt="時空心語 手機版 預約獎勵" loading="lazy" decoding="async" width="1184" height="1144" style="display: block; width: 100%; height: auto;">
+        </div>
+        <img src="assets/vk_img_block1-3-1x.webp" srcset="assets/vk_img_block1-3-1x.webp 1x, assets/vk_img_block1-3.webp 2x" alt="時空心語 桌機版 首頁" loading="lazy" decoding="async" width="2400" height="1320" style="display: block; width: 100%; height: auto;">
+      </div>
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="Pre-registration" hint-size="100%,400px">
+      <img src="assets/vk_img_pre-1x.webp" srcset="assets/vk_img_pre-1x.webp 1x, assets/vk_img_pre.webp 2x" alt="Pre-registration — 事前預約活動頁" loading="lazy" decoding="async" width="1920" height="5850" style="display: block; width: 100%; height: auto;">
+    </dc-import>
+  </main>
+</div>
+
+<dc-import name="Com_ToTop" tone="dark" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { leaving: false, loaded: false };
+
+  componentDidMount() {
+    const go = () => window.PT ? window.PT.mount(this, { fallback: 4000, hero: true }) : setTimeout(go, 16);
+    go();
+  }
+  componentWillUnmount() { clearTimeout(this._fallback); }
+
+  navigate(url) { window.PT ? window.PT.navigate(this, url) : (window.location.href = url); }
+
+
+  renderVals() {
+    return {
+      software: [
+        { icon: 'assets/uiux_icon_figma.webp', label: 'Figma' }
+      ],
+      goBack: () => this.navigate('Page_UIUX.dc.html'),
+      nav: (url) => this.navigate(url),
+      ...(window.PT ? window.PT.cover(this) : { coverOpacity: 1, coverPointer: 'auto', leaveOpacity: 0, coverBg: '#1B1C20' })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html style="background: #1B1C20;">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PH 登入註冊｜RLZ's Portfolio</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RLZ's Portfolio">
+<meta property="og:title" content="PH 登入註冊｜RLZ's Portfolio">
+<meta property="og:image" content="assets/og_cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="dark">
+<style id="preload-bg">html, body { margin: 0; background: #1B1C20; } @view-transition { navigation: auto; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; }</style>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+<script src="page-transition.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #1B1C20; }
+  a { color: #F2F2F2; text-decoration: none; }
+  a:hover { color: #A7A7A7; }
+</style>
+</helmet>
+
+<div style="position: fixed; inset: 0; z-index: 100; background: #1B1C20; opacity: {{ coverOpacity }}; pointer-events: {{ coverPointer }}; transition: opacity 420ms ease-out;"></div>
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: 101; pointer-events: none; background: {{ coverBg }}; opacity: {{ leaveOpacity }}; transition: opacity 300ms ease-out;"></div>
+
+<div style="background: #1B1C20; color: var(--color-primary, #F2F2F2);">
+
+  <dc-import name="Com_Project_Hero" src="assets/log_img_cover.webp" src1x="assets/log_img_cover-1x.webp" alt="PH 登入註冊 主視覺" hint-size="100%,500px">
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 70;"><dc-import name="Com_Nav" current="" tone="dark" on-navigate="{{ nav }}" hint-size="100%,108px"></dc-import></div>
+  </dc-import>
+
+  <main style="box-sizing: border-box; width: 100%; max-width: calc(min(1460px, max(76.04vw, 720px)) + 2 * clamp(20px, 4vw, 64px)); margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px) clamp(200px, 18vh, 300px); display: flex; flex-direction: column;">
+
+    <dc-import name="Com_Project_Head" brand="PlayHorny" subtitle="登入註冊" quote="希望 PlayHorny 的登入、註冊與忘記密碼流程可以更簡單、直覺，讓玩家快速完成帳號建立，順利開始遊戲。" about="PlayHorny 平台提供遊戲下載、點數儲值、派對卡（會員）訂閱、商城及遊戲宣傳活動等完整的遊戲服務。
+本專案聚焦於優化 PlayHorny 平台提供給不同產品使用的登入系統。" tags="UI Design, Design System, UX Design" category="Login System" device="Portrait &amp; Landscape" date="2024" people="{{ people }}" software="{{ software }}" on-back="{{ goBack }}" hint-size="100%,1100px"></dc-import>
+
+    <dc-import name="Com_Project_Section" title="Problem &amp; Solution" first="true" hint-size="100%,400px">
+      <img src="assets/log_img_block01-1x.webp" srcset="assets/log_img_block01-1x.webp 1x, assets/log_img_block01.webp 2x" alt="Problem &amp; Solution — 登入入口現況盤點、整合推動與介面 Before / After" loading="lazy" decoding="async" width="2400" height="3746" style="display: block; width: 100%; height: auto;">
+    </dc-import>
+
+    <dc-import name="Com_Project_Section" title="UIUX" hint-size="100%,400px">
+      <div style="display: flex; flex-direction: column; gap: clamp(12px, 1.042vw, 20px);">
+        <div data-screen-label="PH Login / Interactive Window" style="width: 100%; display: flex; justify-content: center;">
+          <div style="box-sizing: border-box; width: 100%; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-inverted-second, #424242); border-radius: clamp(6px, 0.833vw, 16px);">
+            <div aria-hidden="true" style="flex: 0 0 auto; height: clamp(16px, 1.458vw, 28px); display: flex; align-items: center; gap: clamp(4px, 0.417vw, 8px); padding: 0 clamp(12px, 1.25vw, 24px); background: color-mix(in srgb, var(--color-third, #4A4850) 75%, var(--color-inverted-primary, #000000));">
+              <span style="width: clamp(6px, 0.573vw, 11px); height: clamp(6px, 0.573vw, 11px); border-radius: 50%; background: #FF5F57;"></span>
+              <span style="width: clamp(6px, 0.573vw, 11px); height: clamp(6px, 0.573vw, 11px); border-radius: 50%; background: #FEBC2E;"></span>
+              <span style="width: clamp(6px, 0.573vw, 11px); height: clamp(6px, 0.573vw, 11px); border-radius: 50%; background: #28C840;"></span>
+            </div>
+            <div ref="{{ stageRef }}" style="position: relative; width: 100%; aspect-ratio: 1067 / 580; overflow: hidden; background: color-mix(in srgb, var(--color-third, #4A4850) 35%, var(--color-inverted-primary, #000000));">
+              <sc-for list="{{ screens }}" as="sc" hint-placeholder-count="1">
+                <div aria-hidden="{{ sc.hidden }}" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: {{ sc.opacity }}; pointer-events: {{ sc.pointer }}; transition: opacity 320ms ease;">
+                  <div role="img" aria-label="{{ sc.name }}" style="position: relative; height: {{ sc.h }}; aspect-ratio: {{ sc.ar }}; background-size: 100% 100%; background-image: {{ sc.bg }};">
+                    <sc-for list="{{ sc.spots }}" as="h" hint-placeholder-count="0">
+                      <button type="button" aria-label="{{ h.label }}" tabindex="{{ sc.tab }}" onClick="{{ h.go }}" style="position: absolute; left: {{ h.left }}; top: {{ h.top }}; width: {{ h.width }}; height: {{ h.height }}; padding: 0; border: none; border-radius: {{ h.radius }}; background: transparent; cursor: pointer; transition: background 200ms ease, box-shadow 200ms ease; --hover-bg: {{ h.hoverBg }}; --hover-line: {{ h.hoverLine }};" style-hover="background: var(--hover-bg); box-shadow: var(--hover-line);"></button>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <p class="body2" style="margin: 0; text-align: center; color: var(--color-second, #A7A7A7); text-wrap: pretty;">點擊畫面中的按鈕，體驗登入、註冊與忘記密碼流程。</p>
+      </div>
+    </dc-import>
+  </main>
+</div>
+
+<dc-import name="Com_ToTop" tone="dark" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { leaving: false, loaded: false };
+
+  componentDidMount() {
+    const go = () => window.PT ? window.PT.mount(this, { fallback: 4000, hero: true }) : setTimeout(go, 16);
+    go();
+  }
+  componentWillUnmount() { clearTimeout(this._fallback); if (this._io) this._io.disconnect(); }
+
+  // 互動視窗：每個畫面為 assets/ 圖（寬 960）；spots 熱區用原圖像素 (x, y, w, h)；kind: 'btn' 整塊微亮 / 'field' 方框微亮 / 'text' 紫色底線
+  static SCREENS = [
+    { id: 'login', name: '會員登入', img: 'log_img_login', W: 960, H: 1436, spots: [
+      { to: 're01', kind: 'text', label: '會員登錄', x: 91, y: 1074, w: 123, h: 41 },
+      { to: 'forget01', kind: 'text', label: '忘記密碼', x: 747, y: 1074, w: 123, h: 41 }
+    ] },
+    { id: 're01', name: '註冊會員', img: 'log_img_re01', W: 960, H: 1396, spots: [
+      { to: 're02', kind: 'btn', label: '註冊', x: 80, y: 1140, w: 800, h: 72 },
+      { to: 'login', kind: 'text', label: '登入', x: 594, y: 1254, w: 59, h: 41 }
+    ] },
+    { id: 're02', name: '註冊完成', img: 'log_img_re02', W: 960, H: 964, spots: [
+      { to: 'login', kind: 'btn', label: '登入', x: 80, y: 712, w: 800, h: 72 }
+    ] },
+    { id: 'forget01', name: '忘記密碼', img: 'log_img_forget01', W: 960, H: 1200, spots: [
+      { to: 'forget02', kind: 'btn', label: '發送驗證碼', x: 80, y: 944, w: 800, h: 72 },
+      { to: 'login', kind: 'text', label: '會員登入', x: 90, y: 1057, w: 124, h: 42 },
+      { to: 're01', kind: 'text', label: '註冊', x: 809, y: 1057, w: 62, h: 42 }
+    ] },
+    { id: 'forget02', name: '輸入驗證碼', img: 'log_img_forget02', W: 960, H: 1280, spots: [
+      { to: 'forget03', kind: 'field', label: '輸入驗證碼', x: 196, y: 500, w: 568, h: 120 },
+      { to: 'forget01', kind: 'text', label: '返回', x: 434, y: 1138, w: 103, h: 41 }
+    ] },
+    { id: 'forget03', name: '重設密碼', img: 'log_img_forget03', W: 960, H: 1200, spots: [
+      { to: 'forget04', kind: 'btn', label: '確認重設', x: 80, y: 1032, w: 800, h: 72 }
+    ] },
+    { id: 'forget04', name: '重設完成', img: 'log_img_forget04', W: 960, H: 1200, spots: [
+      { to: 'login', kind: 'btn', label: '登入', x: 80, y: 1032, w: 800, h: 72 }
+    ] }
+  ];
+  static HOVER = {
+    btn: { radius: '999px', hoverBg: 'color-mix(in srgb, var(--color-primary, #F2F2F2) 12%, transparent)', hoverLine: 'none' },
+    field: { radius: '8px', hoverBg: 'color-mix(in srgb, var(--color-primary, #F2F2F2) 12%, transparent)', hoverLine: 'none' },
+    text: { radius: '0', hoverBg: 'transparent', hoverLine: 'inset 0 -1px 0 0 #8D62DB' }
+  };
+
+  // 靜態部分只算一次；畫面圖等視窗接近可視範圍才載入
+  buildScreens() {
+    const list = Component.SCREENS, maxH = Math.max(...list.map(s => s.H));
+    const pct = (v, t) => (v / t * 100).toFixed(3) + '%';
+    this._go = {};
+    const go = (id) => this._go[id] ||= () => this.setState({ screen: id });
+    return list.map(sc => ({
+      id: sc.id, name: sc.name,
+      bgSet: `image-set(url("assets/${sc.img}-1x.webp") 1x, url("assets/${sc.img}.webp") 2x)`,
+      h: (sc.H / maxH * 78).toFixed(3) + '%', ar: sc.W + ' / ' + sc.H,
+      spots: sc.spots.map(p => ({ ...Component.HOVER[p.kind], label: p.label, left: pct(p.x, sc.W), top: pct(p.y, sc.H), width: pct(p.w, sc.W), height: pct(p.h, sc.H), go: go(p.to) }))
+    }));
+  }
+  stageRef = (el) => {
+    if (this._io) { this._io.disconnect(); this._io = null; }
+    if (!el || this.state.stageNear) return;
+    if (!('IntersectionObserver' in window)) { this.setState({ stageNear: true }); return; }
+    this._io = new IntersectionObserver((es) => {
+      if (es.some(e => e.isIntersecting)) { this._io.disconnect(); this._io = null; this.setState({ stageNear: true }); }
+    }, { rootMargin: '600px 0px' });
+    this._io.observe(el);
+  };
+  screenVals() {
+    this._screens ||= this.buildScreens();
+    const cur = this.state.screen || 'login', near = !!this.state.stageNear;
+    return {
+      stageRef: this.stageRef,
+      screens: this._screens.map(sc => {
+        const on = sc.id === cur;
+        return { ...sc, bg: near ? sc.bgSet : 'none', opacity: on ? 1 : 0, pointer: on ? 'auto' : 'none', hidden: on ? 'false' : 'true', tab: on ? 0 : -1 };
+      })
+    };
+  }
+
+  navigate(url) { window.PT ? window.PT.navigate(this, url) : (window.location.href = url); }
+
+
+  renderVals() {
+    return {
+      people: [
+        { avatar: 'assets/uiux_img_user1.webp', name: 'PlayHorny', role: 'Product Planner' },
+        { avatar: 'assets/uiux_img_user2.webp', name: 'PlayHorny', role: 'Designer' }
+      ],
+      software: [
+        { icon: 'assets/uiux_icon_figma.webp', label: 'Figma' }
+      ],
+      ...this.screenVals(),
+      goBack: () => this.navigate('Page_UIUX.dc.html'),
+      nav: (url) => this.navigate(url),
+      ...(window.PT ? window.PT.cover(this) : { coverOpacity: 1, coverPointer: 'auto', leaveOpacity: 0, coverBg: '#1B1C20' })
+    };
+  }
+}
+</script>
+</body>
+</html>

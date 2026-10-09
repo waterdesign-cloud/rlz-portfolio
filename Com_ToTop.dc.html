@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+</helmet>
+<button type="button" aria-label="回到頂部" onClick="{{ toTop }}" style="position: fixed; right: clamp(20px, 2.5vw, 48px); bottom: clamp(20px, 2.5vw, 48px); z-index: 80; box-sizing: border-box; width: clamp(44px, 2.917vw, 56px); height: clamp(44px, 2.917vw, 56px); padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid {{ line }}; background: {{ fill }}; color: {{ ink }}; cursor: pointer; opacity: {{ opacity }}; transform: {{ shift }}; pointer-events: {{ pointer }}; transition: opacity 240ms ease, transform 240ms ease, background-color 200ms ease, color 200ms ease;" style-hover="background: {{ fillHover }}; color: {{ inkHover }};">
+  <svg width="40%" height="40%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><line x1="12" y1="20" x2="12" y2="4"></line><polyline points="5,11 12,4 19,11"></polyline></svg>
+</button>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;320px&quot;,&quot;height&quot;:&quot;200px&quot;},&quot;tone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light'|'dark'&quot;}}">
+class Component extends DCLogic {
+  state = { show: false };
+  componentDidMount() {
+    this._onScroll = () => {
+      const show = window.scrollY > window.innerHeight * 0.6;
+      if (show !== this.state.show) this.setState({ show });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+  renderVals() {
+    const dark = this.props.tone === 'dark';
+    const show = this.state.show;
+    return {
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      opacity: show ? 1 : 0,
+      shift: show ? 'translateY(0)' : 'translateY(8px)',
+      pointer: show ? 'auto' : 'none',
+      line: dark ? 'var(--color-third)' : 'var(--color-second)',
+      fill: dark ? 'rgba(27, 28, 32, 0.7)' : 'rgba(235, 235, 235, 0.8)',
+      ink: dark ? 'var(--color-primary)' : 'var(--color-third)',
+      fillHover: dark ? 'var(--color-primary)' : 'var(--color-third)',
+      inkHover: dark ? '#1B1C20' : 'var(--color-primary)'
+    };
+  }
+}
+</script>
+</body>
+</html>

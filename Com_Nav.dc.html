@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+</helmet>
+<header style="display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; padding: 36px clamp(20px, 3vw, 48px) 26px; position: relative; isolation: isolate;">
+  <div aria-hidden="true" style="position: absolute; top: 0; left: 0; right: 0; bottom: -40px; z-index: -1; pointer-events: none; backdrop-filter: {{ barBlur }}; -webkit-backdrop-filter: {{ barBlur }}; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%); opacity: {{ barOpacity }}; transition: opacity 280ms ease;"></div>
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ false }}">
+    <div style="display: flex; align-items: center;"><img srcset="{{ logoSrc }} 1x" alt="RLZ Portfolio Website" width="944" height="218" style="display: block; height: {{ logoH }}; width: auto;"></div>
+  </sc-if>
+  <sc-if value="{{ notHome }}" hint-placeholder-val="{{ true }}">
+    <a href="Page_Home.dc.html" onClick="{{ goHome }}" aria-label="回首頁" style="display: flex; align-items: center; transition: opacity 200ms ease;" style-hover="opacity: 0.7;"><img srcset="{{ logoSrc }} 1x" alt="RLZ Portfolio Website" width="944" height="218" style="display: block; height: {{ logoH }}; width: auto;"></a>
+  </sc-if>
+  <nav style="display: flex; align-items: center; gap: clamp(20px, 2.6vw, 48px); font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: clamp(14px, 1.04vw, 20px); line-height: 1.25; letter-spacing: 0;">
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ false }}">
+      <span aria-current="page" style="color: {{ ink }}; padding: 2px 0; cursor: default; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px;">HOME</span>
+    </sc-if>
+    <sc-if value="{{ notHome }}" hint-placeholder-val="{{ true }}">
+      <a href="Page_Home.dc.html" onClick="{{ goHome }}" style="color: {{ ink }}; text-decoration: none; padding: 2px 0; transition: color 200ms ease;" style-hover="color: {{ inkHover }};">HOME</a>
+    </sc-if>
+    <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+      <span aria-current="page" style="color: {{ ink }}; padding: 2px 0; cursor: default; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px;">WORK FILE</span>
+    </sc-if>
+    <sc-if value="{{ notAbout }}" hint-placeholder-val="{{ true }}">
+      <a href="Page_WorkFile.dc.html" onClick="{{ goAbout }}" style="color: {{ ink }}; text-decoration: none; padding: 2px 0; transition: color 200ms ease;" style-hover="color: {{ inkHover }};">WORK FILE</a>
+    </sc-if>
+    <div style="position: relative; display: flex; align-items: center;">
+      <span onClick="{{ toggleWork }}" style="display: flex; align-items: center; gap: 8px; color: {{ ink }}; cursor: pointer; padding: 2px 0; user-select: none; transition: color 200ms ease;" style-hover="color: {{ inkHover }};">WORKS<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: block; transform: translateY(1px);"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      <div style="position: absolute; top: 100%; right: 0; display: flex; flex-direction: column; gap: 16px; padding: 18px; min-width: 160px; margin-top: 14px; background: #111110; border: 1px solid #111110; border-radius: 4px; box-shadow: 7px 4px 8px rgba(20, 24, 16, 0.30); font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: clamp(14px, 1.04vw, 20px); line-height: 1.25; letter-spacing: 0; opacity: {{ workMenuOpacity }}; transform: {{ workMenuTransform }}; pointer-events: {{ workMenuPointer }}; transition: opacity 220ms ease, transform 220ms ease;">
+        <a href="Page_UIUX.dc.html" onClick="{{ goUiux }}" style="color: #f5f5f0; text-decoration: none; white-space: nowrap; transition: color 200ms ease;" style-hover="color: #a8a8a2;">UIUX Journey</a>
+        <a href="Page_Graphic.dc.html" onClick="{{ goGraphic }}" style="color: #f5f5f0; text-decoration: none; white-space: nowrap; transition: color 200ms ease;" style-hover="color: #a8a8a2;">Graphic Design</a>
+      </div>
+    </div>
+  </nav>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1440px&quot;,&quot;height&quot;:&quot;260px&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;about&quot;,&quot;uiux&quot;,&quot;graphic&quot;,&quot;&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;'home'|'about'|'uiux'|'graphic'|''&quot;},&quot;tone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light'|'dark'&quot;},&quot;onNavigate&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(url: string) =&gt; void&quot;}}">
+class Component extends DCLogic {
+  state = { workOpen: false, scrolled: false };
+  componentDidMount() {
+    this._close = () => { if (this.state.workOpen) this.setState({ workOpen: false }); };
+    window.addEventListener('click', this._close);
+    this._onScroll = () => { const s = window.scrollY > 8; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+    window.__navReady = true;
+    window.dispatchEvent(new Event('nav-ready'));
+  }
+  componentWillUnmount() { window.removeEventListener('click', this._close); window.removeEventListener('scroll', this._onScroll); }
+  go(e, url) {
+    e.preventDefault();
+    this.setState({ workOpen: false });
+    if (this.props.onNavigate) this.props.onNavigate(url); else window.location.href = url;
+  }
+  renderVals() {
+    const cur = this.props.current ?? '';
+    const dark = this.props.tone === 'dark';
+    const open = this.state.workOpen;
+    return {
+      isHome: cur === 'home', notHome: cur !== 'home',
+      isAbout: cur === 'about', notAbout: cur !== 'about',
+      goHome: (e) => this.go(e, 'Page_Home.dc.html'),
+      goAbout: (e) => this.go(e, 'Page_WorkFile.dc.html'),
+      goUiux: (e) => this.go(e, 'Page_UIUX.dc.html'),
+      goGraphic: (e) => this.go(e, 'Page_Graphic.dc.html'),
+      toggleWork: (e) => { e.stopPropagation(); this.setState(s => ({ workOpen: !s.workOpen })); },
+      workMenuOpacity: open ? 1 : 0,
+      workMenuTransform: open ? 'translateY(0)' : 'translateY(-6px)',
+      workMenuPointer: open ? 'auto' : 'none',
+      barBlur: 'blur(1px)',
+      barOpacity: this.state.scrolled ? 1 : 0,
+      ink: dark ? 'var(--color-primary)' : '#111110',
+      inkHover: dark ? 'var(--color-second)' : '#8a8a85',
+      logoH: dark ? 'clamp(36px, 2.292vw, 44px)' : 'clamp(40px, 2.5vw, 48px)',
+      logoSrc: dark ? 'assets/common_logo_light.webp' : 'assets/common_logo_dark.webp'
+    };
+  }
+}
+</script>
+</body>
+</html>

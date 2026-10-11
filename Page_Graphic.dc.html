@@ -72,7 +72,7 @@
 <div ref="{{ lbRef }}" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="{{ lbHidden }}" aria-label="{{ lbLabel }}" onClick="{{ close }}" style="outline: none; position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.9); opacity: {{ lbOpacity }}; pointer-events: {{ lbPointer }}; transition: opacity 280ms ease;">
   <div onClick="{{ stop }}" style="position: relative; width: min(84vw, calc(70vh * 2048 / 1160)); aspect-ratio: 2048 / 1160; margin: 62px 0 56px; border-radius: 4px; scale: {{ lbScale }}; transition: scale 360ms cubic-bezier(0.22, 1, 0.36, 1);">
     <div style="position: absolute; inset: 0; opacity: {{ swOpacity }}; translate: {{ swX }} 0; transition: {{ swTr }}; will-change: opacity, translate;">
-    <sc-if value="{{ lbHas }}" hint-placeholder-val="{{ false }}"><img src="{{ lbSrc }}" srcset="{{ lbSet }}" alt="{{ lbLabel }}" width="1920" height="1080" style="position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 4px;"></sc-if>
+    <sc-if value="{{ lbHas }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ lbLabel }}" style="position: absolute; inset: 0; background-image: {{ lbBg }}; background-size: contain; background-position: center; background-repeat: no-repeat; border-radius: 4px;"></div></sc-if>
     <sc-if value="{{ lbNone }}" hint-placeholder-val="{{ false }}"><span class="body2" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--color-second, #A7A7A7); background: var(--color-inverted-second, #424242); border-radius: 4px;">16 : 9</span></sc-if>
     </div>
     <button type="button" tabindex="{{ lbTab }}" onClick="{{ close }}" aria-label="Close" style="position: absolute; right: -9px; top: -66px; width: 75px; height: 57px; display: flex; align-items: center; justify-content: center; padding: 0; border: none; background: transparent; color: var(--color-primary, #F2F2F2); cursor: pointer; transition: color 200ms ease;" style-hover="color: var(--color-second, #A7A7A7);"><svg width="66" height="31" viewBox="0 0 24 24" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="0.73" stroke-linecap="round" style="display: block;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
@@ -121,7 +121,13 @@ class Component extends DCLogic {
     if (!f) return (this._dec[i] = Promise.resolve());
     const im = new Image();
     im.src = `assets/${f}${(window.devicePixelRatio || 1) > 1 ? '' : '-1x'}.webp`;
-    return (this._dec[i] = im.decode().catch(() => {}));
+    im.decoding = 'async';
+    const p = (im.decode ? im.decode() : new Promise((res, rej) => { im.onload = res; im.onerror = rej; })).catch(() => { delete this._dec[i]; });
+    return (this._dec[i] = p);
+  }
+  // 最多等 900ms，未載完也先開啟，圖片載好後自然出現
+  readySoon(i) {
+    return Promise.race([this.ready(i), new Promise(r => setTimeout(r, 900))]);
   }
   show(i, token) {
     if (token !== this._tok) return;
@@ -163,7 +169,7 @@ class Component extends DCLogic {
     const t = this._tok = (this._tok || 0) + 1;
     cancelAnimationFrame(this._raf);
     this.setState({ open: i, phase: 'hide', dir: 0 });
-    this.ready(i).then(() => this.show(i, t));
+    this.readySoon(i).then(() => this.show(i, t));
   }
   close() {
     this._tok = (this._tok || 0) + 1; document.documentElement.style.overflow = ''; this.setState({ open: -1 });
@@ -175,12 +181,12 @@ class Component extends DCLogic {
     const t = this._tok = (this._tok || 0) + 1;
     cancelAnimationFrame(this._raf);
     this.setState({ open: i, phase: 'out', dir: d });
-    Promise.all([new Promise(r => setTimeout(r, 170)), this.ready(i)]).then(() => this.show(i, t));
+    Promise.all([new Promise(r => setTimeout(r, 170)), this.readySoon(i)]).then(() => this.show(i, t));
   }
   renderVals() {
     const { leaving, loaded, open } = this.state;
     const list = this.list();
-    const set = (f) => f ? `assets/${f}-1x.webp 1x, assets/${f}.webp 2x` : '';
+    const bg = (f) => f ? `image-set(url("assets/${f}-1x.webp") 1x, url("assets/${f}.webp") 2x)` : 'none';
     const items = list.map((g, i) => ({
       label: g.label, has: !!g.thumb, none: !g.thumb, src: g.thumb ? `assets/${g.thumb}-1x.webp` : '',
       open: () => this.openAt(i),
@@ -205,7 +211,7 @@ class Component extends DCLogic {
       swOpacity: phase === 'idle' ? 1 : 0,
       swX: phase === 'out' ? (-dir * 28) + 'px' : phase === 'enter' ? (dir * 28) + 'px' : '0px',
       swTr: (phase === 'enter' || phase === 'hide') ? 'none' : phase === 'out' ? 'opacity 170ms ease-in, translate 170ms ease-in' : 'opacity 320ms ease-out, translate 420ms cubic-bezier(0.22, 1, 0.36, 1)',
-      lbHas: seen && !!cur.full, lbNone: seen && !cur.full, lbSet: set(cur.full), lbSrc: cur.full ? `assets/${cur.full}.webp` : '', lbLabel: cur.label,
+      lbHas: seen && !!cur.full, lbNone: seen && !cur.full, lbBg: bg(cur.full), lbLabel: cur.label,
       lbCount: String((this.state.shown ?? 0) + 1).padStart(2, '0') + ' / ' + String(list.length).padStart(2, '0'),
       ...(window.PT ? window.PT.cover(this, '#ebebeb') : { coverOpacity: 1, coverPointer: 'auto', leaveOpacity: 0, coverBg: '#ebebeb' }),
       uxPlay: loaded ? 'running' : 'paused'

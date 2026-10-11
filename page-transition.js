@@ -16,14 +16,13 @@
         if (done) return; done = true;
         clearTimeout(c._fallback);
         c.setState({ loaded: true });
-        if (window.__ptFinish) window.__ptFinish();
         if (o.hero) playHero();
       };
       const reveal = () => Promise.all([waitNav(), document.fonts ? document.fonts.ready : null])
         .then(() => Promise.all([...document.images].filter(i => i.loading !== 'lazy' && i.getBoundingClientRect().top < window.innerHeight).map(waitImg)))
-        .then(() => requestAnimationFrame(() => requestAnimationFrame(show)));
+        .then(() => { if (window.__ptFinish) window.__ptFinish(show); else requestAnimationFrame(() => requestAnimationFrame(show)); });
       if (document.readyState === 'complete') reveal(); else window.addEventListener('load', reveal, { once: true });
-      c._fallback = setTimeout(show, o.fallback || 6000);
+      c._fallback = setTimeout(show, document.getElementById('pt-loader') ? 22000 : (o.fallback || 6000));
       window.addEventListener('pageshow', (e) => { if (e.persisted) c.setState({ leaving: false, loaded: true }); });
     },
     cover(c, bg) {

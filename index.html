@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RLZ's Portfolio</title>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RLZ's Portfolio">
@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <style id="preload-bg">html, body { margin: 0; background: #ebebeb; } @view-transition { navigation: auto; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; }</style>
 <style id="pt-loader-css">#pt-loader{position:fixed;inset:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#ebebeb;transition:opacity 450ms ease}#pt-loader.done{opacity:0;pointer-events:none}#pt-loader i{display:block;width:160px;height:1px;overflow:hidden;background:#4A485033}#pt-loader b{display:block;height:100%;background:#4A4850;transform-origin:left;transform:scaleX(0);animation:ptLoad 10s cubic-bezier(.08,.6,.2,1) forwards}#pt-loader span{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:14px;line-height:24px;letter-spacing:0;color:#4A4850;font-variant-numeric:tabular-nums}@keyframes ptLoad{to{transform:scaleX(.92)}}@media (prefers-reduced-motion:reduce){#pt-loader b{animation-duration:.01s}}</style>
-<script id="pt-loader-js">(function(){var raf,ready=false,last=performance.now(),t0=performance.now();try{new PerformanceObserver(function(l){if(l.getEntries().length)last=performance.now()}).observe({type:'resource',buffered:true})}catch(e){}function pct(b){var m=getComputedStyle(b).transform;var a=m&&m!=='none'?parseFloat(m.split('(')[1]):0;return Math.round(a*100)}function idle(){return ready&&document.readyState==='complete'&&(!document.fonts||document.fonts.status==='loaded')&&performance.now()-last>700}function tick(){var el=document.getElementById('pt-loader');if(!el)return;var b=el.querySelector('b'),n=el.querySelector('span');if(b&&n)n.textContent=pct(b)+'%';if(idle()||performance.now()-t0>20000){finish();return}raf=requestAnimationFrame(tick)}raf=requestAnimationFrame(tick);function finish(){if(window.__ptDone)return;window.__ptDone=true;cancelAnimationFrame(raf);var el=document.getElementById('pt-loader');if(!el)return;var b=el.querySelector('b'),n=el.querySelector('span');var t=getComputedStyle(b).transform;b.style.animation='none';b.style.transform=t;b.offsetWidth;b.style.transition='transform 260ms ease';b.style.transform='scaleX(1)';setTimeout(function(){if(n)n.textContent='100%';el.classList.add('done')},280);setTimeout(function(){el.remove()},800)}window.__ptFinish=function(){ready=true};window.addEventListener('pageshow',function(e){if(e.persisted)finish()})})();</script>
+<script id="pt-loader-js">(function(){var raf,ready=false,last=performance.now(),t0=performance.now();try{new PerformanceObserver(function(l){if(l.getEntries().length)last=performance.now()}).observe({type:'resource',buffered:true})}catch(e){}function pct(b){var m=getComputedStyle(b).transform;var a=m&&m!=='none'?parseFloat(m.split('(')[1]):0;return Math.round(a*100)}function idle(){return ready&&document.readyState==='complete'&&(!document.fonts||document.fonts.status==='loaded')&&performance.now()-last>700}function tick(){var el=document.getElementById('pt-loader');if(!el)return;var b=el.querySelector('b'),n=el.querySelector('span');if(b&&n)n.textContent=pct(b)+'%';if(idle()||performance.now()-t0>20000){finish();return}raf=requestAnimationFrame(tick)}raf=requestAnimationFrame(tick);function finish(){if(window.__ptDone)return;window.__ptDone=true;cancelAnimationFrame(raf);var el=document.getElementById('pt-loader');if(!el){run();return}var b=el.querySelector('b'),n=el.querySelector('span');var t=getComputedStyle(b).transform;b.style.animation='none';b.style.transform=t;b.offsetWidth;b.style.transition='transform 260ms ease';b.style.transform='scaleX(1)';setTimeout(function(){if(n)n.textContent='100%';el.classList.add('done');run()},280);setTimeout(function(){el.remove()},800)}var cbs=[];function run(){var l=cbs;cbs=[];l.forEach(function(f){try{f()}catch(e){}})}window.__ptFinish=function(cb){ready=true;if(cb)cbs.push(cb);if(window.__ptDone&&!document.getElementById('pt-loader'))run()};window.addEventListener('pageshow',function(e){if(e.persisted)finish()})})();</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -113,24 +113,29 @@ class Component extends DCLogic {
   }
 
 
+  // 彈窗圖預先下載並解碼，點擊時已就緒就立刻開啟
+  modalUrls(key) { return ['assets/home_img_modal_deco_' + key + '.webp', DARK.includes(key) ? 'assets/home_img_modal_paper_dark.webp' : 'assets/home_img_modal_paper.webp']; }
+  decodeImg(u) {
+    this._dec ||= {}; this._ok ||= {}; this._imgs ||= [];
+    if (!this._dec[u]) {
+      const i = new Image(); i.decoding = 'async'; i.src = u; this._imgs.push(i);
+      this._dec[u] = (i.decode ? i.decode() : Promise.resolve()).catch(() => {}).then(() => { this._ok[u] = true; });
+    }
+    return this._dec[u];
+  }
+  preloadModals() {
+    ['ocean','hiking','graphic','uiux','code','english'].forEach(k => this.modalUrls(k).forEach(u => this.decodeImg(u)));
+  }
   openModal(key) {
-    const dark = DARK.includes(key);
-    const urls = ['assets/home_img_modal_deco_' + key + '.webp', dark ? 'assets/home_img_modal_paper_dark.webp' : 'assets/home_img_modal_paper.webp'];
+    const urls = this.modalUrls(key);
+    if (urls.every(u => this._ok && this._ok[u])) { this.setState({ last: key, on: false, modal: key }); return; }
     this.setState({ last: key, on: false });
-    Promise.all(urls.map(u => { const i = new Image(); i.src = u; return i.decode ? i.decode().catch(() => {}) : Promise.resolve(); }))
-      .then(() => requestAnimationFrame(() => this.setState({ modal: key })));
+    Promise.all(urls.map(u => this.decodeImg(u))).then(() => this.setState({ modal: key }));
   }
   closeModal() { this.setState({ modal: null }); }
 
   componentDidUpdate() {
-    if (this.state.loaded && !this._preloaded) {
-      this._preloaded = true;
-      const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 600));
-      idle(() => {
-        ['ocean','hiking','graphic','uiux','code','english'].forEach(k => { const i = new Image(); i.src = 'assets/home_img_modal_deco_' + k + '.webp'; });
-        ['assets/home_img_modal_paper.webp','assets/home_img_modal_paper_dark.webp'].forEach(u => { const i = new Image(); i.src = u; });
-      });
-    }
+    if (!this._preloaded) { this._preloaded = true; this.preloadModals(); }
     if (this.state.loaded && !this._tagT) {
       const full = TAGLINE;
       this._tagT = setTimeout(() => {

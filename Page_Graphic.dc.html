@@ -68,7 +68,8 @@ h1.h1 { margin: 0; color: var(--color-inverted-primary, #000000); animation: uxH
 .card { all: unset; box-sizing: border-box; position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-primary, #F2F2F2); cursor: zoom-in; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); transition: translate 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease; animation: uxCardIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both; }
 .card:hover { translate: 0 -6px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16); }
 .card:focus-visible { outline: 2px solid var(--color-third, #4A4850); outline-offset: 3px; }
-.card img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.card img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 420ms ease; }
+.card img.ok { opacity: 1; }
 #lb { outline: none; position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.9); opacity: 0; pointer-events: none; transition: opacity 280ms ease; }
 #lb.open { opacity: 1; pointer-events: auto; }
 .lb-box { position: relative; width: min(84vw, calc(70vh * 2048 / 1160)); aspect-ratio: 2048 / 1160; margin: 62px 0 56px; border-radius: 4px; scale: 0.96; transition: scale 360ms cubic-bezier(0.22, 1, 0.36, 1); }
@@ -128,10 +129,10 @@ h1.h1 { margin: 0; color: var(--color-inverted-primary, #000000); animation: uxH
       <button type="button" class="card anim" data-i="5" aria-label="聲音工作者的幕後物語" style="animation-delay: 900ms;"><img src="assets/gd_img_voice2_cover-1x.webp" alt="聲音工作者的幕後物語" fetchpriority="high" decoding="async" width="960" height="960"></button>
       <button type="button" class="card anim" data-i="6" aria-label="漫筆歐洲" style="animation-delay: 990ms;"><img src="assets/gd_img_europe_cover-1x.webp" alt="漫筆歐洲" fetchpriority="high" decoding="async" width="960" height="960"></button>
       <button type="button" class="card anim" data-i="7" aria-label="老梗即經典" style="animation-delay: 1080ms;"><img src="assets/gd_img_classic_cover-1x.webp" alt="老梗即經典" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="8" aria-label="漫畫幕後 23 事" style="animation-delay: 1170ms;"><img src="assets/gd_img_backstage23_cover-1x.webp" alt="漫畫幕後 23 事" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="9" aria-label="指尖上的漫畫" style="animation-delay: 1170ms;"><img src="assets/gd_img_fingertip_cover-1x.webp" alt="指尖上的漫畫" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="10" aria-label="漫畫成書轉生術" style="animation-delay: 1170ms;"><img src="assets/gd_img_reborn_cover-1x.webp" alt="漫畫成書轉生術" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="11" aria-label="原創漫畫創作營 2021 第一期" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_1_cover-1x.webp" alt="原創漫畫創作營 2021 第一期" fetchpriority="high" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="8" aria-label="漫畫幕後 23 事" style="animation-delay: 1170ms;"><img src="assets/gd_img_backstage23_cover-1x.webp" alt="漫畫幕後 23 事" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="9" aria-label="指尖上的漫畫" style="animation-delay: 1170ms;"><img src="assets/gd_img_fingertip_cover-1x.webp" alt="指尖上的漫畫" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="10" aria-label="漫畫成書轉生術" style="animation-delay: 1170ms;"><img src="assets/gd_img_reborn_cover-1x.webp" alt="漫畫成書轉生術" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="11" aria-label="原創漫畫創作營 2021 第一期" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_1_cover-1x.webp" alt="原創漫畫創作營 2021 第一期" decoding="async" width="960" height="960"></button>
       <button type="button" class="card anim" data-i="12" aria-label="原創漫畫創作營 2021 特別篇" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_special_cover-1x.webp" alt="原創漫畫創作營 2021 特別篇" decoding="async" width="960" height="960"></button>
       <button type="button" class="card anim" data-i="13" aria-label="釋放散播 腐之力百合香" style="animation-delay: 1170ms;"><img src="assets/gd_img_bl_yuri_cover-1x.webp" alt="釋放散播 腐之力百合香" decoding="async" width="960" height="960"></button>
       <button type="button" class="card anim" data-i="14" aria-label="腐之力開啟創造力" style="animation-delay: 1170ms;"><img src="assets/gd_img_bl_create_cover-1x.webp" alt="腐之力開啟創造力" decoding="async" width="960" height="960"></button>
@@ -167,27 +168,36 @@ h1.h1 { margin: 0; color: var(--color-inverted-primary, #000000); animation: uxH
   var HOME = /github\.io$/.test(location.hostname) ? './' : 'Page_Home.dc.html';
   var $ = function (id) { return document.getElementById(id); };
 
-  // 進場：首屏縮圖與字型好了就收掉進度條（最多 4 秒）
+  // 進場：進度 = 首屏圖片（導覽列、裝飾、第一屏縮圖）實際載完的比例；全部載完才收起（最多 12 秒）
   (function () {
-    var el = $('pt-loader'), b = el.querySelector('b'), n = el.querySelector('span'), t0 = performance.now(), done = false, raf;
-    function pct() { var m = getComputedStyle(b).transform; return Math.round((m && m !== 'none' ? parseFloat(m.split('(')[1]) : 0) * 100); }
-    function tick() { n.textContent = pct() + '%'; raf = requestAnimationFrame(tick); }
-    raf = requestAnimationFrame(tick);
+    var el = $('pt-loader'), bar = el.querySelector('b'), n = el.querySelector('span'), done = false;
+    bar.style.animation = 'none'; bar.style.transition = 'transform 300ms ease';
+    var imgs = [].slice.call(document.querySelectorAll('.nav img, .deco')).concat(
+      [].slice.call(document.querySelectorAll('.card img')).filter(function (i) { return i.getBoundingClientRect().top < innerHeight; }));
+    var total = imgs.length + 1, got = 0;
+    function set() { var p = Math.round(got / total * 100); bar.style.transform = 'scaleX(' + (p / 100) + ')'; n.textContent = p + '%'; if (got >= total) finish(); }
+    function one() { got++; set(); }
     function finish() {
-      if (done) return; done = true; cancelAnimationFrame(raf);
-      var t = getComputedStyle(b).transform; b.style.animation = 'none'; b.style.transform = t; b.offsetWidth;
-      b.style.transition = 'transform 240ms ease'; b.style.transform = 'scaleX(1)'; n.textContent = '100%';
-      setTimeout(function () { el.classList.add('done'); document.body.classList.add('in'); }, 260);
-      setTimeout(function () { el.remove(); }, 760);
+      if (done) return; done = true;
+      bar.style.transform = 'scaleX(1)'; n.textContent = '100%';
+      setTimeout(function () { el.classList.add('done'); document.body.classList.add('in'); }, 320);
+      setTimeout(function () { el.remove(); }, 820);
     }
-    var wait = [document.fonts ? document.fonts.ready : null];
-    [].slice.call(document.querySelectorAll('.nav img, .deco, .card img')).filter(function (i) { return i.getBoundingClientRect().top < innerHeight * 1.2; }).forEach(function (i) {
-      if (!i.complete) wait.push(new Promise(function (r) { i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); }));
+    imgs.forEach(function (i) {
+      var p = (i.complete && i.naturalWidth) ? Promise.resolve() : new Promise(function (r) { i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); });
+      p.then(function () { return i.decode ? i.decode().catch(function () {}) : null; }).then(one);
     });
-    Promise.all(wait).then(finish);
-    setTimeout(finish, 6000);
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(one);
+    set();
+    setTimeout(finish, 12000);
     window.addEventListener('pageshow', function (e) { if (e.persisted) { finish(); $('leave').classList.remove('on'); } });
   })();
+
+  // 縮圖完整解碼後才淡入，不會看到下載到一半的圖
+  [].slice.call(document.querySelectorAll('.card img')).forEach(function (im) {
+    function show() { (im.decode ? im.decode() : Promise.resolve()).catch(function () {}).then(function () { im.classList.add('ok'); }); }
+    if (im.complete && im.naturalWidth) show(); else im.addEventListener('load', show, { once: true });
+  });
 
   // 換頁淡出
   [].slice.call(document.querySelectorAll('.js-home')).forEach(function (a) { a.setAttribute('href', HOME); });

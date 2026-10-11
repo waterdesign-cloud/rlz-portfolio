@@ -18,14 +18,14 @@
     <div style="display: flex; align-items: center;"><img srcset="{{ logoSrc }} 1x" alt="RLZ Portfolio Website" width="944" height="218" style="display: block; height: {{ logoH }}; width: auto;"></div>
   </sc-if>
   <sc-if value="{{ notHome }}" hint-placeholder-val="{{ true }}">
-    <a href="Page_Home.dc.html" onClick="{{ goHome }}" aria-label="回首頁" style="display: flex; align-items: center; transition: opacity 200ms ease;" style-hover="opacity: 0.7;"><img srcset="{{ logoSrc }} 1x" alt="RLZ Portfolio Website" width="944" height="218" style="display: block; height: {{ logoH }}; width: auto;"></a>
+    <a href="{{ homeHref }}" onClick="{{ goHome }}" aria-label="回首頁" style="display: flex; align-items: center; transition: opacity 200ms ease;" style-hover="opacity: 0.7;"><img srcset="{{ logoSrc }} 1x" alt="RLZ Portfolio Website" width="944" height="218" style="display: block; height: {{ logoH }}; width: auto;"></a>
   </sc-if>
   <nav style="display: flex; align-items: center; gap: clamp(20px, 2.6vw, 48px); font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: clamp(14px, 1.04vw, 20px); line-height: 1.25; letter-spacing: 0;">
     <sc-if value="{{ isHome }}" hint-placeholder-val="{{ false }}">
       <span aria-current="page" style="color: {{ ink }}; padding: 2px 0; cursor: default; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px;">HOME</span>
     </sc-if>
     <sc-if value="{{ notHome }}" hint-placeholder-val="{{ true }}">
-      <a href="Page_Home.dc.html" onClick="{{ goHome }}" style="color: {{ ink }}; text-decoration: none; padding: 2px 0; transition: color 200ms ease;" style-hover="color: {{ inkHover }};">HOME</a>
+      <a href="{{ homeHref }}" onClick="{{ goHome }}" style="color: {{ ink }}; text-decoration: none; padding: 2px 0; transition: color 200ms ease;" style-hover="color: {{ inkHover }};">HOME</a>
     </sc-if>
     <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
       <span aria-current="page" style="color: {{ ink }}; padding: 2px 0; cursor: default; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px;">WORK FILE</span>
@@ -59,13 +59,14 @@ class Component extends DCLogic {
   go(e, url) {
     e.preventDefault();
     this.setState({ workOpen: false });
-    if (this.props.onNavigate) this.props.onNavigate(url); else window.location.href = url;
+    if (this.props.onNavigate) this.props.onNavigate(url); else window.location.href = (url === 'Page_Home.dc.html' && /github\.io$/.test(location.hostname)) ? './' : url;
   }
   renderVals() {
     const cur = this.props.current ?? '';
     const dark = this.props.tone === 'dark';
     const open = this.state.workOpen;
     return {
+      homeHref: /github\.io$/.test(location.hostname) ? './' : 'Page_Home.dc.html',
       isHome: cur === 'home', notHome: cur !== 'home',
       isAbout: cur === 'about', notAbout: cur !== 'about',
       goHome: (e) => this.go(e, 'Page_Home.dc.html'),

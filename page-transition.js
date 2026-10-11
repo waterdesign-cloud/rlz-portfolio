@@ -16,6 +16,7 @@
         if (done) return; done = true;
         clearTimeout(c._fallback);
         c.setState({ loaded: true });
+        if (window.__ptFinish) window.__ptFinish();
         if (o.hero) playHero();
       };
       const reveal = () => Promise.all([waitNav(), document.fonts ? document.fonts.ready : null])
@@ -33,7 +34,9 @@
       const name = decodeURIComponent(url).split('/').pop();
       return name.startsWith('UIUX_') ? DARK : LIGHT;
     },
+    homeUrl() { return /github\.io$/.test(location.hostname) ? './' : 'Page_Home.dc.html'; },
     navigate(c, url) {
+      if (url === 'Page_Home.dc.html') url = this.homeUrl();
       c.setState({ leaving: true, coverBg: this.bgFor(url) });
       setTimeout(() => { window.location.href = url; }, 320);
     }

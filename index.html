@@ -1,22 +1,279 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" style="background: #ebebeb;">
+<html style="background: #ebebeb;">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RLZ's Portfolio</title>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RLZ's Portfolio">
 <meta property="og:title" content="RLZ's Portfolio">
-<meta property="og:image" content="assets/og_cover.jpg">
+<meta property="og:image" content="https://waterdesign-cloud.github.io/assets/og_cover.jpg">
+<meta property="og:url" content="https://waterdesign-cloud.github.io/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="refresh" content="0; url=Page_Home.dc.html">
-<script>location.replace('Page_Home.dc.html' + location.search + location.hash);</script>
+<style id="preload-bg">html, body { margin: 0; background: #ebebeb; } @view-transition { navigation: auto; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; }</style>
+<style id="pt-loader-css">#pt-loader{position:fixed;inset:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#ebebeb;transition:opacity 450ms ease}#pt-loader.done{opacity:0;pointer-events:none}#pt-loader i{display:block;width:160px;height:1px;overflow:hidden;background:#4A485033}#pt-loader b{display:block;height:100%;background:#4A4850;transform-origin:left;transform:scaleX(0);animation:ptLoad 7s cubic-bezier(.08,.6,.2,1) forwards}#pt-loader span{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:14px;line-height:24px;letter-spacing:0;color:#4A4850;font-variant-numeric:tabular-nums}@keyframes ptLoad{to{transform:scaleX(.92)}}@media (prefers-reduced-motion:reduce){#pt-loader b{animation-duration:.01s}}</style>
+<script id="pt-loader-js">(function(){var raf;function pct(b){var m=getComputedStyle(b).transform;var a=m&&m!=='none'?parseFloat(m.split('(')[1]):0;return Math.round(a*100)}function tick(){var el=document.getElementById('pt-loader');if(!el)return;var b=el.querySelector('b'),n=el.querySelector('span');if(b&&n)n.textContent=pct(b)+'%';raf=requestAnimationFrame(tick)}raf=requestAnimationFrame(tick);window.__ptFinish=function(){if(window.__ptDone)return;window.__ptDone=true;var el=document.getElementById('pt-loader');if(!el)return;var b=el.querySelector('b');var t=getComputedStyle(b).transform;b.style.animation='none';b.style.transform=t;b.offsetWidth;b.style.transition='transform 260ms ease';b.style.transform='scaleX(1)';setTimeout(function(){cancelAnimationFrame(raf);var n=el.querySelector('span');if(n)n.textContent='100%';el.classList.add('done')},280);setTimeout(function(){el.remove()},800)};window.addEventListener('load',function(){setTimeout(window.__ptFinish,8000)});window.addEventListener('pageshow',function(e){if(e.persisted)window.__ptFinish()})})();</script>
+<script src="./support.js"></script>
 </head>
-<body style="margin: 0; background: #ebebeb;">
-<a href="Page_Home.dc.html" style="color: #4A4850;">RLZ's Portfolio</a>
+<body>
+<div id="pt-loader" aria-hidden="true"><i><b></b></i><span>0%</span></div>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+<script src="page-transition.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #ebebeb; }
+  a { color: var(--color-third, #4A4850); text-decoration: none; }
+  a:hover { color: var(--color-second, #A7A7A7); }
+  @keyframes bookIn { from { transform: translateY(54px) rotate(-1.4deg); } to { transform: translateY(0) rotate(0deg); } }
+  @keyframes caretBlink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @keyframes bookFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes modalRiseIn { from { opacity: 0; transform: translateY(46px) scale(0.94) rotate(-1.2deg); } to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); } }
+  @keyframes modalDropIn { from { opacity: 0; transform: translateY(-58px) rotate(-2.5deg); } to { opacity: 1; transform: translateY(0) rotate(0deg); } }
+</style>
+</helmet>
+
+<div style="position: fixed; inset: 0; z-index: 100; background: #ebebeb; opacity: {{ coverOpacity }}; pointer-events: {{ coverPointer }}; transition: opacity 420ms ease-out;"></div>
+
+<section data-screen-label="Home / Hero" style="position: relative; width: 100%; height: 100vh; min-height: 560px; overflow: hidden; background-image: url('assets/common_img_pattern.webp'); background-repeat: repeat; background-size: 250px 250px; background-position: 0 -10px; font-family: 'Noto Sans TC', sans-serif; color: #111110;">
+
+  <div style="position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: max(100%, 1100px);">
+
+    <img src="assets/home_img_bg.webp" alt="" style="display: block; width: 100%; height: auto; pointer-events: none; user-select: none;">
+  </div>
+
+  <div style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: flex; justify-content: center; align-items: center; gap: clamp(8px, 0.83vw, 16px); padding: 40px 24px 0;" onMouseMove="{{ onMove }}" onMouseLeave="{{ onLeave }}">
+
+      <div style="display: flex; align-items: flex-end; gap: clamp(4px, 0.35vw, 6px); height: min(62vh, 31vw); flex: 1 1 0; min-width: 0; justify-content: flex-end;">
+        <span style="display: block; height: 100%; animation: bookIn 1150ms cubic-bezier(0.16, 1, 0.3, 1) 900ms both, bookFade 800ms ease-out 900ms both; animation-play-state: {{ bookPlay }}; will-change: transform, opacity;"><img src="assets/home_img_item_ocean.webp" onClick="{{ openOcean }}" alt="OCEAN" style="height: 100%; width: auto; cursor: pointer; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); filter: drop-shadow(7px 4px 5px rgba(48, 54, 38, 0.47));" style-hover="transform: translateY(-8%)" onMouseEnter="{{ onEnter }}" onMouseLeave="{{ onExit }}"></span>
+        <span style="display: block; height: 100%; animation: bookIn 1150ms cubic-bezier(0.16, 1, 0.3, 1) 600ms both, bookFade 800ms ease-out 600ms both; animation-play-state: {{ bookPlay }}; will-change: transform, opacity;"><img src="assets/home_img_item_hiking.webp" onClick="{{ openHiking }}" alt="HIKING" style="height: 100%; width: auto; cursor: pointer; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); filter: drop-shadow(7px 4px 5px rgba(48, 54, 38, 0.47));" style-hover="transform: translateY(-8%)" onMouseEnter="{{ onEnter }}" onMouseLeave="{{ onExit }}"></span>
+        <span style="display: block; height: 100%; animation: bookIn 1150ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both, bookFade 800ms ease-out 300ms both; animation-play-state: {{ bookPlay }}; will-change: transform, opacity;"><img src="assets/home_img_item_graphic.webp" onClick="{{ openGraphic }}" alt="Graphic Design" style="height: 100%; width: auto; cursor: pointer; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); filter: drop-shadow(7px 4px 5px rgba(48, 54, 38, 0.47));" style-hover="transform: translateY(-8%)" onMouseEnter="{{ onEnter }}" onMouseLeave="{{ onExit }}"></span>
+      </div>
+
+      <div style="display: flex; align-items: flex-end; height: min(62.8vh, 31.4vw); flex: 0 0 auto; position: relative; z-index: 3;">
+        <span style="display: block; height: 100%; animation: bookIn 1150ms cubic-bezier(0.16, 1, 0.3, 1) 0ms both, bookFade 800ms ease-out 0ms both; animation-play-state: {{ bookPlay }}; will-change: transform, opacity;"><img src="assets/home_img_item_workfile.webp" alt="WORK FILE — Personal Experience" onClick="{{ goWorkfile }}" style="height: 100%; width: auto; cursor: pointer; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); filter: drop-shadow(7px 5px 6px rgba(48, 54, 38, 0.47));" style-hover="transform: translateY(-8%)" onMouseEnter="{{ onEnter }}" onMouseLeave="{{ onExit }}"></span>
+      </div>
+
+      <div style="display: flex; align-items: flex-end; gap: clamp(4px, 0.35vw, 6px); height: min(62vh, 31vw); flex: 1 1 0; min-width: 0; justify-content: flex-start;">
+        <span style="display: block; height: 100%; animation: bookIn 1150ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both, bookFade 800ms ease-out 300ms both; animation-play-state: {{ bookPlay }}; will-change: transform, opacity;"><img src="assets/home_img_item_uiux.webp" onClick="{{ openUiux }}" alt="UIUX JOURNEY" style="height: 100%; width: auto; cursor: pointer; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); filter: drop-shadow(7px 4px 5px rgba(48, 54, 38, 0.47));" style-hover="transform: translateY(-8%)" onMouseEnter="{{ onEnter }}" onMouseLeave="{{ onExit }}"></span>
+        <span style="display: block; height: 100%; animation: bookIn 1150ms cubic-bezier(0.16, 1, 0.3, 1) 600ms both, bookFade 800ms ease-out 600ms both; animation-play-state: {{ bookPlay }}; will-change: transform, opacity;"><img src="assets/home_img_item_code.webp" onClick="{{ openCode }}" alt="CODE" style="height: 100%; width: auto; cursor: pointer; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); filter: drop-shadow(7px 4px 5px rgba(48, 54, 38, 0.47));" style-hover="transform: translateY(-8%)" onMouseEnter="{{ onEnter }}" onMouseLeave="{{ onExit }}"></span>
+        <span style="display: block; height: 100%; animation: bookIn 1150ms cubic-bezier(0.16, 1, 0.3, 1) 900ms both, bookFade 800ms ease-out 900ms both; animation-play-state: {{ bookPlay }}; will-change: transform, opacity;"><img src="assets/home_img_item_english.webp" alt="Learn English" onClick="{{ openEnglish }}" style="height: 100%; width: auto; cursor: pointer; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); filter: drop-shadow(7px 4px 5px rgba(48, 54, 38, 0.47));" style-hover="transform: translateY(-8%)" onMouseEnter="{{ onEnter }}" onMouseLeave="{{ onExit }}"></span>
+      </div>
+  </div>
+
+  <p class="body1" style="position: absolute; left: calc(50% + 10px); transform: translateX(-50%); width: max-content; max-width: calc(100% - 48px); box-sizing: border-box; top: calc(50% + 20px + min(31vh, 15.5vw) + clamp(8px, 1.6vw, 36px)); z-index: 2; margin: 0; padding: 0em 1em; text-align: center; text-wrap: pretty; font-family: 'Montserrat', 'Noto Sans TC', sans-serif; font-size: clamp(14px, calc(0.571vw + 5.143px), 16px); color: var(--color-inverted-primary, #000000); pointer-events: none;"><span style="display: inline-grid; text-align: left;"><span style="grid-area: 1 / 1; visibility: hidden;" aria-hidden="true">A collection of my experiences, experiments, and work along the way.<span style="display: inline-block; width: 0.55em; margin-left: 3px;"></span></span><span style="grid-area: 1 / 1;" aria-label="A collection of my experiences, experiments, and work along the way.">{{ tagTyped }}<sc-if value="{{ tagStarted }}" hint-placeholder-val="{{ false }}"><span style="display: inline-block; width: 0.55em; height: 1.1em; margin-left: 3px; vertical-align: -0.18em; background: var(--color-inverted-primary, #000000); animation: caretBlink 1s steps(1, end) infinite;"></span></sc-if></span></span></p>
+
+  <div style="{{ modalOverlayStyle }}" onClick="{{ closeModal }}">
+    <div onClick="{{ stopClick }}" style="{{ modalCardStyle }}">
+
+      <sc-if value="{{ modalReady }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="{{ modalPaperStyle }}"></div></sc-if>
+
+      <sc-if value="{{ modalReady }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="{{ modalDecoStyle }}"></div></sc-if>
+
+      <div style="position: absolute; right: 20px; top: {{ textTop }}; width: 74%; height: 100%; padding: 11% 13% 11% 31%; box-sizing: border-box; display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: clamp(10px, 1.25vw, 24px); text-align: center; color: {{ modalInk }};">
+        
+        <div style="display: flex; flex-direction: column; gap: clamp(10px, 1.25vw, 24px);"><h1 class="h1" style="margin: 0; white-space: nowrap; font-size: clamp(22px, 2.5vw, 48px); line-height: 1.5;">{{ modalTitle }}</h1><p class="body1" style="margin: 0; white-space: pre-line; font-size: clamp(13px, 0.84vw, 16px); line-height: 2; color: {{ modalBodyInk }}; text-align: center">{{ modalBody }}</p></div>
+        <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ moreHref }}" onClick="{{ goMore }}" class="body1" style="align-self: center; box-sizing: border-box; width: 240px; display: flex; align-items: center; justify-content: center; gap: 0.6em; margin-top: clamp(12px, 1.5vw, 28px); padding: 0.2em 0; font-size: clamp(13px, 0.84vw, 16px); line-height: 2; font-family: 'Montserrat', 'Noto Sans TC', sans-serif; border: 1px solid var(--color-second, #A7A7A7); border-radius: 999px; color: var(--color-primary, #F2F2F2); text-decoration: none; transition: background 200ms ease, color 200ms ease;" style-hover="background: var(--color-primary, #F2F2F2); color: var(--color-inverted-primary, #000000);">MORE<svg width="0.7em" height="0.7em" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><polyline points="2,1 8,5 2,9"></polyline></svg></a>
+        </sc-if>
+      </div>
+
+      <button onClick="{{ closeModal }}" aria-label="Close" style="position: absolute; right: 2%; top: -46px; width: 75px; height: 57px; display: flex; align-items: center; justify-content: center; padding: 0; border: none; background: transparent; color: var(--color-primary, #F2F2F2); cursor: pointer; transition: color 200ms ease;" style-hover="color: var(--color-second, #A7A7A7);"><svg width="66" height="31" viewBox="0 0 24 24" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="0.73" stroke-linecap="round" style="display: block;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    </div>
+  </div>
+
+  <div ref="{{ cursorRef }}" style="{{ cursorStyle }}">
+    <span style="position: relative; z-index: 1; font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 20px; letter-spacing: 0; color: #111110; line-height: 1; padding-bottom: 6px;">Click</span>
+  </div>
+
+  <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 30; pointer-events: {{ navPointer }};"><dc-import name="Com_Nav" current="home" on-navigate="{{ nav }}" hint-size="100%,108px"></dc-import></div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">const TAGLINE = "A collection of my experiences, experiments, and work along the way.";
+const DARK = ['graphic', 'uiux'];
+
+class Component extends DCLogic {
+  _cursor = React.createRef();
+  state = { on: false, seen: false, modal: null, leaving: false, loaded: false };
+
+  navigate(url) {
+    this.setState({ on: false });
+    if (window.PT) window.PT.navigate(this, url); else window.location.href = url;
+  }
+
+
+  openModal(key) {
+    const dark = DARK.includes(key);
+    const urls = ['assets/home_img_modal_deco_' + key + '.webp', dark ? 'assets/home_img_modal_paper_dark.webp' : 'assets/home_img_modal_paper.webp'];
+    this.setState({ last: key, on: false });
+    Promise.all(urls.map(u => { const i = new Image(); i.src = u; return i.decode ? i.decode().catch(() => {}) : Promise.resolve(); }))
+      .then(() => requestAnimationFrame(() => this.setState({ modal: key })));
+  }
+  closeModal() { this.setState({ modal: null }); }
+
+  componentDidUpdate() {
+    if (this.state.loaded && !this._preloaded) {
+      this._preloaded = true;
+      const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 600));
+      idle(() => {
+        ['ocean','hiking','graphic','uiux','code','english'].forEach(k => { const i = new Image(); i.src = 'assets/home_img_modal_deco_' + k + '.webp'; });
+        ['assets/home_img_modal_paper.webp','assets/home_img_modal_paper_dark.webp'].forEach(u => { const i = new Image(); i.src = u; });
+      });
+    }
+    if (this.state.loaded && !this._tagT) {
+      const full = TAGLINE;
+      this._tagT = setTimeout(() => {
+        this.setState({ tagN: 0, tagStarted: true });
+        this._tagI = setInterval(() => {
+          const n = (this.state.tagN || 0) + 1;
+          this.setState({ tagN: n });
+          if (n >= full.length) clearInterval(this._tagI);
+        }, 45);
+      }, 0);
+    }
+  }
+  componentDidMount() {
+    if (this.state.loaded) this.componentDidUpdate({}, {});
+    const go = () => window.PT ? window.PT.mount(this, { fallback: 6000 }) : setTimeout(go, 16);
+    go();
+    this._esc = (e) => { if (e.key === 'Escape' && this.state.modal) this.closeModal(); };
+    window.addEventListener('keydown', this._esc);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._esc); clearTimeout(this._fallback); clearTimeout(this._tagT); clearInterval(this._tagI); }
+
+  renderVals() {
+    const { on, seen, modal } = this.state;
+    const COPY = {
+      english: { title: 'Learn English', body: '一段還在進行中的語言學習旅程。\n找尋保持動力的學習方式，\n練習勇敢開口說話。' },
+      ocean: { title: 'Ocean', body: '海邊的紀錄與收集。\n踩踩水、聽著海浪拍打的聲音，\n什麼都不做，也能讓人放鬆下來。' },
+      hiking: { title: 'Hiking', body: '一步一步往上邁步，\n走到山頂回頭往下看，\n一路走來的成就感浮現在心頭。' },
+      graphic: { title: 'Graphic Design', body: '平面設計作品的累積，\n包含視覺設計、字型設計與展場設計，\n記錄不同類型的設計嘗試。' },
+      uiux: { title: 'UIUX Journey', body: '介面與體驗設計的實作歷程。\n從網頁到 APP，一路嘗試不同的設計方式，\n慢慢累積自己的經驗。' },
+      code: { title: 'Code', body: '在 AI 浪潮下，每個人都可以成為創作者。\n希望自己能了解程式的基礎邏輯，\n善用 AI 但不被 AI 框住。' }
+    };
+    const key = modal || this.state.last || 'english';
+    const dark = DARK.includes(key);
+    const shown = !!modal;
+    const size = 114;
+    return {
+      openEnglish: () => this.openModal('english'),
+      openOcean: () => this.openModal('ocean'),
+      openHiking: () => this.openModal('hiking'),
+      openGraphic: () => this.openModal('graphic'),
+      openUiux: () => this.openModal('uiux'),
+      openCode: () => this.openModal('code'),
+      modalReady: true,
+      modalPaperSrc: dark ? 'assets/home_img_modal_paper_dark.webp' : 'assets/home_img_modal_paper.webp',
+      modalDecoSrc: 'assets/home_img_modal_deco_' + key + '.webp',
+      modalInk: dark ? 'var(--color-primary, #F2F2F2)' : 'var(--color-inverted-primary, #000000)',
+      modalBodyInk: dark ? 'var(--color-second, #A7A7A7)' : 'var(--color-inverted-primary, #000000)',
+      modalTitle: COPY[key].title,
+      modalBody: COPY[key].body,
+      hasMore: dark,
+      moreHref: key === 'graphic' ? 'Page_Graphic.dc.html' : 'Page_UIUX.dc.html',
+      goMore: (e) => { const url = key === 'graphic' ? 'Page_Graphic.dc.html' : 'Page_UIUX.dc.html'; e.preventDefault(); this.setState({ modal: null }); this.navigate(url); },
+      textTop: dark ? '0px' : '-10px',
+      navPointer: this.state.modal ? 'none' : 'auto',
+      bookPlay: this.state.loaded ? 'running' : 'paused',
+      tagTyped: TAGLINE.slice(0, this.state.tagN || 0),
+      tagStarted: !!this.state.tagStarted,
+      nav: (url) => this.navigate(url),
+      goWorkfile: () => this.navigate('Page_WorkFile.dc.html'),
+      coverOpacity: (this.state.leaving || !this.state.loaded) ? 1 : 0,
+      coverPointer: (this.state.leaving || !this.state.loaded) ? 'auto' : 'none',
+      closeModal: () => this.closeModal(),
+      modalCardStyle: {
+        position: 'relative',
+        width: 'min(1062px, 83vw)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        cursor: 'default',
+        transform: 'translate(-7%, 10px)'
+      },
+      modalPaperStyle: {
+        display: 'block',
+        width: '74%',
+        aspectRatio: '1600 / 849',
+        backgroundImage: `url("${dark ? 'assets/home_img_modal_paper_dark.webp' : 'assets/home_img_modal_paper.webp'}")`,
+        backgroundSize: '100% 100%',
+        filter: 'drop-shadow(14px 18px 26px rgba(20, 24, 16, 0.42))',
+        opacity: shown ? 1 : 0,
+        animation: shown ? 'modalRiseIn 640ms cubic-bezier(0.16, 1, 0.3, 1) both' : 'none',
+        transition: shown ? 'none' : 'opacity 200ms ease'
+      },
+      modalDecoStyle: {
+        position: 'absolute',
+        left: '13.98%',
+        top: '-12.75%',
+        bottom: 0,
+        height: '112.75%',
+        aspectRatio: '700 / 909',
+        backgroundImage: `url("assets/home_img_modal_deco_${key}.webp")`,
+        backgroundSize: '100% 100%',
+        filter: 'drop-shadow(10px 14px 20px rgba(20, 24, 16, 0.38))',
+        opacity: shown ? 1 : 0,
+        animation: shown ? 'modalDropIn 1020ms cubic-bezier(0.18, 1, 0.28, 1) 100ms both' : 'none',
+        transition: shown ? 'none' : 'opacity 200ms ease'
+      },
+      stopClick: (e) => e.stopPropagation(),
+      modalOverlayStyle: {
+        position: 'fixed',
+        inset: 0,
+        zIndex: 40,
+        display: 'flex',
+        visibility: shown ? 'visible' : 'hidden',
+        pointerEvents: shown ? 'auto' : 'none',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'rgba(0, 0, 0, 0.7)',
+        backdropFilter: 'blur(1px)',
+        cursor: 'pointer',
+        opacity: shown ? 1 : 0,
+        transition: shown
+          ? 'opacity 340ms ease, visibility 0s'
+          : 'opacity 260ms ease, visibility 0s linear 260ms'
+      },
+      cursorRef: this._cursor,
+      onMove: (e) => {
+        const r = e.currentTarget.getBoundingClientRect(), el = this._cursor.current;
+        if (el) { el.style.left = (e.clientX - r.left) + 'px'; el.style.top = (e.clientY - r.top) + 'px'; }
+        if (!this.state.seen) this.setState({ seen: true });
+      },
+      onLeave: () => this.setState({ on: false }),
+      onEnter: () => this.setState({ on: true }),
+      onExit: () => this.setState({ on: false }),
+      cursorStyle: {
+        position: 'absolute',
+        width: size + 'px',
+        height: size + 'px',
+        marginLeft: -size / 2 + 'px',
+        marginTop: -size / 2 + 'px',
+        borderRadius: '50%',
+        background: 'var(--color-primary, #F2F2F2)',
+        mixBlendMode: 'difference',
+        display: seen ? 'flex' : 'none',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 20,
+        pointerEvents: 'none',
+        opacity: on ? 1 : 0,
+        transform: on ? 'scale(1)' : 'scale(0.6)',
+        transition: 'opacity 260ms ease, transform 380ms cubic-bezier(0.22, 1, 0.36, 1)'
+      }
+    };
+  }
+}</script>
 </body>
 </html>

@@ -60,8 +60,8 @@
 
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: clamp(14px, 1.3vw, 22px);">
       <sc-for list="{{ items }}" as="g" hint-placeholder-count="9">
-        <button type="button" onClick="{{ g.open }}" aria-label="{{ g.label }}" style="all: unset; box-sizing: border-box; position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-primary, #F2F2F2); cursor: zoom-in; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); transition: translate 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease; animation: uxCardIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: {{ g.delay }}; animation-play-state: {{ uxPlay }};" style-hover="translate: 0 -6px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);">
-          <sc-if value="{{ g.has }}" hint-placeholder-val="{{ false }}"><img src="{{ g.src }}" alt="{{ g.label }}" loading="lazy" decoding="async" width="1200" height="1200" style="position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover;"></sc-if>
+        <button type="button" onClick="{{ g.open }}" onMouseEnter="{{ g.warm }}" onFocus="{{ g.warm }}" onTouchStart="{{ g.warm }}" aria-label="{{ g.label }}" style="all: unset; box-sizing: border-box; position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-primary, #F2F2F2); cursor: zoom-in; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); transition: translate 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease; animation: uxCardIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: {{ g.delay }}; animation-play-state: {{ uxPlay }};" style-hover="translate: 0 -6px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);">
+          <sc-if value="{{ g.has }}" hint-placeholder-val="{{ false }}"><img src="{{ g.src }}" alt="{{ g.label }}" loading="lazy" decoding="async" width="960" height="960" style="position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover;"></sc-if>
           <sc-if value="{{ g.none }}" hint-placeholder-val="{{ true }}"><span class="body2" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--color-second, #A7A7A7);">1 : 1</span></sc-if>
         </button>
       </sc-for>
@@ -130,7 +130,7 @@ class Component extends DCLogic {
   }
   componentWillUnmount() { cancelAnimationFrame(this._raf); clearTimeout(this._fallback); window.removeEventListener('keydown', this._key); document.documentElement.style.overflow = ''; }
   navigate(url) { if (window.PT) window.PT.navigate(this, url); else window.location.href = url; }
-  // 圖片放在 assets/：thumb = 1:1 縮圖（1200）、full = 16:9 大圖（2048×1160）（不含 -1x / .webp）；空字串顯示佔位
+  // 圖片放在 assets/：thumb = 1:1 縮圖（960）、full = 16:9 大圖（2048×1160）（不含 -1x / .webp）；空字串顯示佔位
   list() {
     return [
       { thumb: 'gd_img_camp2022_basic_cover', full: 'gd_img_camp2022_basic_kv', label: '原創漫畫創作營 2022 基礎班' },
@@ -184,6 +184,7 @@ class Component extends DCLogic {
     const items = list.map((g, i) => ({
       label: g.label, has: !!g.thumb, none: !g.thumb, src: g.thumb ? `assets/${g.thumb}-1x.webp` : '',
       open: () => this.openAt(i),
+      warm: () => this.ready(i),
       delay: (450 + Math.min(i, 8) * 90) + 'ms'
     }));
     const cur = list[this.state.shown ?? 0] || list[0];

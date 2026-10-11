@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" style="background: #ebebeb;">
+<html style="background: #ebebeb;">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,281 +16,214 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="color-scheme" content="light">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&amp;family=Noto+Sans+TC:wght@300&amp;display=swap">
-<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
-<link rel="preload" as="image" href="assets/gh_img_deco1.webp">
-<link rel="preload" as="image" href="assets/gh_img_deco2.webp">
-<link rel="preload" as="image" href="assets/gh_img_deco3.webp">
-<link rel="preload" as="image" href="assets/gh_img_deco4.webp">
-<link rel="preload" as="image" href="assets/gd_img_camp2022_basic_cover-1x.webp">
-<link rel="preload" as="image" href="assets/gd_img_camp2022_advanced_cover-1x.webp">
-<link rel="preload" as="image" href="assets/gd_img_camp2023_cover-1x.webp">
-<link rel="preload" as="image" href="assets/gd_img_tiger_cover-1x.webp">
-<style>
-html, body { margin: 0; padding: 0; background: #ebebeb; }
-a { color: var(--color-third, #4A4850); text-decoration: none; }
-a:hover { color: var(--color-second, #A7A7A7); }
-@keyframes uxHeadIn { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
-@keyframes uxDecoIn { 0% { opacity: 0; scale: 0.5; } 70% { opacity: 1; scale: 1.06; } 100% { opacity: 1; scale: 1; } }
-@keyframes uxCardIn { from { opacity: 0; translate: 0 36px; } to { opacity: 1; translate: 0 0; } }
-@keyframes ptLoad { to { transform: scaleX(.92); } }
-.anim { animation-play-state: paused !important; }
-body.in .anim { animation-play-state: running !important; }
-#pt-loader { position: fixed; inset: 0; z-index: 2147483647; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: #ebebeb; transition: opacity 450ms ease; }
-#pt-loader.done { opacity: 0; pointer-events: none; }
-#pt-loader i { display: block; width: 160px; height: 1px; overflow: hidden; background: #4A485033; }
-#pt-loader b { display: block; height: 100%; background: #4A4850; transform-origin: left; transform: scaleX(0); animation: ptLoad 6s cubic-bezier(.08,.6,.2,1) forwards; }
-#pt-loader span { font-family: 'Noto Sans TC', sans-serif; font-weight: 300; font-size: 14px; line-height: 24px; color: #4A4850; font-variant-numeric: tabular-nums; }
-#leave { position: fixed; inset: 0; z-index: 101; pointer-events: none; opacity: 0; transition: opacity 300ms ease-out; background: #ebebeb; }
-#leave.on { opacity: 1; pointer-events: auto; }
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 70; display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; padding: 36px clamp(20px, 3vw, 48px) 26px; isolation: isolate; }
-.nav-blur { position: absolute; top: 0; left: 0; right: 0; bottom: -40px; z-index: -1; pointer-events: none; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%); opacity: 0; transition: opacity 280ms ease; }
-.nav.scrolled .nav-blur { opacity: 1; }
-.nav-logo { display: flex; align-items: center; transition: opacity 200ms ease; }
-.nav-logo:hover { opacity: 0.7; }
-.nav-logo img { display: block; height: clamp(40px, 2.5vw, 48px); width: auto; }
-.nav-links { display: flex; align-items: center; gap: clamp(20px, 2.6vw, 48px); font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: clamp(14px, 1.04vw, 20px); line-height: 1.25; }
-.nav-links > a, .works-btn { color: #111110; padding: 2px 0; transition: color 200ms ease; }
-.nav-links > a:hover, .works-btn:hover { color: #8a8a85; }
-.works { position: relative; display: flex; align-items: center; }
-.works-btn { all: unset; display: flex; align-items: center; gap: 8px; color: #111110; cursor: pointer; padding: 2px 0; font: inherit; }
-.works-menu { position: absolute; top: 100%; right: 0; display: flex; flex-direction: column; gap: 16px; padding: 18px; min-width: 160px; margin-top: 14px; background: #111110; border: 1px solid #111110; border-radius: 4px; box-shadow: 7px 4px 8px rgba(20, 24, 16, 0.30); font-weight: 400; opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity 220ms ease, transform 220ms ease; }
-.works.open .works-menu { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.works-menu a { color: #f5f5f0; white-space: nowrap; transition: color 200ms ease; }
-.works-menu a:hover { color: #a8a8a2; }
-.page { position: relative; width: 100%; min-height: 100vh; overflow: hidden; background-image: url('assets/common_img_pattern.webp'); background-size: 250px 250px; color: var(--color-inverted-primary, #000000); }
-main { position: relative; z-index: 2; box-sizing: border-box; width: 100%; max-width: 1240px; margin: 0 auto; padding: clamp(24px, 5vh, 72px) clamp(20px, 3vw, 48px) clamp(100px, calc(13.158vh + 15.79px), 200px); display: flex; flex-direction: column; gap: clamp(20px, 2.6vw, 44px); }
-.deco { position: absolute; height: auto; z-index: 3; pointer-events: none; animation: uxDecoIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) both; }
-h1.h1 { margin: 0; color: var(--color-inverted-primary, #000000); animation: uxHeadIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: clamp(14px, 1.3vw, 22px); }
-.card { all: unset; box-sizing: border-box; position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-primary, #F2F2F2); cursor: zoom-in; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); transition: translate 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease; animation: uxCardIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-.card:hover { translate: 0 -6px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16); }
-.card:focus-visible { outline: 2px solid var(--color-third, #4A4850); outline-offset: 3px; }
-.card img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 420ms ease; }
-.card img.ok { opacity: 1; }
-#lb { outline: none; position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.9); opacity: 0; pointer-events: none; transition: opacity 280ms ease; }
-#lb.open { opacity: 1; pointer-events: auto; }
-.lb-box { position: relative; width: min(84vw, calc(70vh * 2048 / 1160)); aspect-ratio: 2048 / 1160; margin: 62px 0 56px; border-radius: 4px; scale: 0.96; transition: scale 360ms cubic-bezier(0.22, 1, 0.36, 1); }
-#lb.open .lb-box { scale: 1; }
-.lb-sw { position: absolute; inset: 0; will-change: opacity, translate; }
-.lb-sw > div { position: absolute; inset: 0; border-radius: 4px; background-size: contain; background-position: center; background-repeat: no-repeat; }
-.lb-base { background: var(--color-inverted-second, #424242); }
-.lb-hi { opacity: 0; transition: opacity 320ms ease; }
-.lb-hi.ok { opacity: 1; }
-.lb-btn { all: unset; position: absolute; display: flex; align-items: center; justify-content: center; color: var(--color-primary, #F2F2F2); cursor: pointer; transition: color 200ms ease; }
-.lb-btn:hover { color: var(--color-second, #A7A7A7); }
-.lb-close { right: -9px; top: -66px; width: 75px; height: 57px; }
-.lb-prev, .lb-next { top: 50%; translate: 0 -50%; width: 44px; height: 44px; }
-.lb-prev { left: clamp(8px, 1.5vw, 28px); }
-.lb-next { right: clamp(8px, 1.5vw, 28px); }
-.lb-count { position: absolute; bottom: clamp(16px, 2vw, 32px); left: 0; right: 0; text-align: center; color: var(--color-second, #A7A7A7); }
-#totop { position: fixed; right: clamp(20px, 2.5vw, 48px); bottom: clamp(20px, 2.5vw, 48px); z-index: 80; box-sizing: border-box; width: clamp(44px, 2.917vw, 56px); height: clamp(44px, 2.917vw, 56px); padding: 0; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--color-second); background: rgba(235, 235, 235, 0.8); color: var(--color-third); cursor: pointer; opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity 240ms ease, transform 240ms ease, background-color 200ms ease, color 200ms ease; }
-#totop.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
-#totop:hover { background: var(--color-third); color: var(--color-primary); }
-@media (prefers-reduced-motion: reduce) { .anim, .card, .deco, h1.h1 { animation: none !important; } }
-</style>
+<style id="preload-bg">html, body { margin: 0; background: #ebebeb; } @view-transition { navigation: auto; } ::view-transition-old(root), ::view-transition-new(root) { animation: none; }</style>
+<style id="pt-loader-css">#pt-loader{position:fixed;inset:0;z-index:2147483647;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#ebebeb;transition:opacity 450ms ease}#pt-loader.done{opacity:0;pointer-events:none}#pt-loader i{display:block;width:160px;height:1px;overflow:hidden;background:#4A485033}#pt-loader b{display:block;height:100%;background:#4A4850;transform-origin:left;transform:scaleX(0);animation:ptLoad 10s cubic-bezier(.08,.6,.2,1) forwards}#pt-loader span{font-family:'Noto Sans TC',sans-serif;font-weight:300;font-size:14px;line-height:24px;letter-spacing:0;color:#4A4850;font-variant-numeric:tabular-nums}@keyframes ptLoad{to{transform:scaleX(.92)}}@media (prefers-reduced-motion:reduce){#pt-loader b{animation-duration:.01s}}</style>
+<script id="pt-loader-js">(function(){var raf,ready=false,last=performance.now(),t0=performance.now();try{new PerformanceObserver(function(l){if(l.getEntries().length)last=performance.now()}).observe({type:'resource',buffered:true})}catch(e){}function pct(b){var m=getComputedStyle(b).transform;var a=m&&m!=='none'?parseFloat(m.split('(')[1]):0;return Math.round(a*100)}function idle(){return ready&&document.readyState==='complete'&&(!document.fonts||document.fonts.status==='loaded')&&performance.now()-last>700}function tick(){var el=document.getElementById('pt-loader');if(!el)return;var b=el.querySelector('b'),n=el.querySelector('span');if(b&&n)n.textContent=pct(b)+'%';if(idle()||performance.now()-t0>20000){finish();return}raf=requestAnimationFrame(tick)}raf=requestAnimationFrame(tick);function finish(){if(window.__ptDone)return;window.__ptDone=true;cancelAnimationFrame(raf);var el=document.getElementById('pt-loader');if(!el){run();return}var b=el.querySelector('b'),n=el.querySelector('span');var t=getComputedStyle(b).transform;b.style.animation='none';b.style.transform=t;b.offsetWidth;b.style.transition='transform 260ms ease';b.style.transform='scaleX(1)';setTimeout(function(){if(n)n.textContent='100%';el.classList.add('done');run()},280);setTimeout(function(){el.remove()},800)}var cbs=[];function run(){var l=cbs;cbs=[];l.forEach(function(f){try{f()}catch(e){}})}window.__ptFinish=function(cb){ready=true;if(cb)cbs.push(cb);if(window.__ptDone&&!document.getElementById('pt-loader'))run()};window.addEventListener('pageshow',function(e){if(e.persisted)finish()})})();</script>
+<script src="./support.js"></script>
 </head>
 <body>
 <div id="pt-loader" aria-hidden="true"><i><b></b></i><span>0%</span></div>
-<div id="leave" aria-hidden="true"></div>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&amp;family=Noto+Sans+TC:wght@200;300;400&amp;display=swap">
+<link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<script src="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/_ds_bundle.js"></script>
+<script src="page-transition.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #ebebeb; }
+  a { color: var(--color-third, #4A4850); text-decoration: none; }
+  a:hover { color: var(--color-second, #A7A7A7); }
+  @keyframes uxHeadIn { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes uxDecoIn { 0% { opacity: 0; scale: 0.5; } 70% { opacity: 1; scale: 1.06; } 100% { opacity: 1; scale: 1; } }
+  @keyframes uxCardIn { from { opacity: 0; translate: 0 36px; } to { opacity: 1; translate: 0 0; } }
+</style>
+</helmet>
 
-<header class="nav" id="nav">
-  <div class="nav-blur" aria-hidden="true"></div>
-  <a class="nav-logo js-home" href="Page_Home.dc.html" aria-label="回首頁"><img src="assets/common_logo_dark.webp" alt="RLZ Portfolio Website" width="944" height="218" fetchpriority="high"></a>
-  <nav class="nav-links">
-    <a class="js-home" href="Page_Home.dc.html">HOME</a>
-    <a href="Page_WorkFile.dc.html">WORK FILE</a>
-    <div class="works" id="works">
-      <button type="button" class="works-btn" aria-expanded="false" aria-haspopup="true">WORKS<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: block; transform: translateY(1px);"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-      <div class="works-menu">
-        <a href="Page_UIUX.dc.html">UIUX Journey</a>
-        <a href="Page_Graphic.dc.html">Graphic Design</a>
-      </div>
-    </div>
-  </nav>
-</header>
+<div style="position: fixed; inset: 0; z-index: 100; background: #ebebeb; opacity: {{ coverOpacity }}; pointer-events: {{ coverPointer }}; transition: opacity 420ms ease-out;"></div>
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: 101; pointer-events: none; background: {{ coverBg }}; opacity: {{ leaveOpacity }}; transition: opacity 300ms ease-out;"></div>
 
-<section class="page" data-screen-label="Graphic / Overview">
+<section data-screen-label="Graphic / Overview" style="position: relative; width: 100%; min-height: 100vh; overflow: hidden; background-image: url('assets/common_img_pattern.webp'); background-repeat: repeat; background-size: 250px 250px; color: var(--color-inverted-primary, #000000);">
+
   <div aria-hidden="true" style="height: 108px;"></div>
-  <main>
-    <img class="deco anim" src="assets/gh_img_deco1.webp" alt="" style="right: 16%; top: 0; width: clamp(81px, 7.2vw, 126px); transform: rotate(-6deg); animation-delay: 1300ms;">
-    <img class="deco anim" src="assets/gh_img_deco2.webp" alt="" style="right: -4%; top: 22%; width: clamp(77px, 7vw, 126px); animation-delay: 1450ms;">
-    <img class="deco anim" src="assets/gh_img_deco3.webp" alt="" style="left: -8%; bottom: 16%; width: clamp(67px, 5.92vw, 104px); transform: rotate(-8deg); animation-delay: 1600ms;">
-    <img class="deco anim" src="assets/gh_img_deco4.webp" alt="" style="left: 1.5%; bottom: 5%; width: clamp(66px, 5.5vw, 99px); transform: rotate(8deg); animation-delay: 1750ms;">
-    <h1 class="h1 anim">Graphic Design</h1>
-    <div class="grid" id="grid">
-      <button type="button" class="card anim" data-i="0" aria-label="原創漫畫創作營 2022 基礎班" style="animation-delay: 450ms;"><img src="assets/gd_img_camp2022_basic_cover-1x.webp" alt="原創漫畫創作營 2022 基礎班" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="1" aria-label="原創漫畫創作營 2022 進階班" style="animation-delay: 540ms;"><img src="assets/gd_img_camp2022_advanced_cover-1x.webp" alt="原創漫畫創作營 2022 進階班" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="2" aria-label="原創漫畫創作營 2023" style="animation-delay: 630ms;"><img src="assets/gd_img_camp2023_cover-1x.webp" alt="原創漫畫創作營 2023" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="3" aria-label="拜請虎將" style="animation-delay: 720ms;"><img src="assets/gd_img_tiger_cover-1x.webp" alt="拜請虎將" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="4" aria-label="人聲百貨營業中" style="animation-delay: 810ms;"><img src="assets/gd_img_voice1_cover-1x.webp" alt="人聲百貨營業中" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="5" aria-label="聲音工作者的幕後物語" style="animation-delay: 900ms;"><img src="assets/gd_img_voice2_cover-1x.webp" alt="聲音工作者的幕後物語" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="6" aria-label="漫筆歐洲" style="animation-delay: 990ms;"><img src="assets/gd_img_europe_cover-1x.webp" alt="漫筆歐洲" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="7" aria-label="老梗即經典" style="animation-delay: 1080ms;"><img src="assets/gd_img_classic_cover-1x.webp" alt="老梗即經典" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="8" aria-label="漫畫幕後 23 事" style="animation-delay: 1170ms;"><img src="assets/gd_img_backstage23_cover-1x.webp" alt="漫畫幕後 23 事" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="9" aria-label="指尖上的漫畫" style="animation-delay: 1170ms;"><img src="assets/gd_img_fingertip_cover-1x.webp" alt="指尖上的漫畫" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="10" aria-label="漫畫成書轉生術" style="animation-delay: 1170ms;"><img src="assets/gd_img_reborn_cover-1x.webp" alt="漫畫成書轉生術" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="11" aria-label="原創漫畫創作營 2021 第一期" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_1_cover-1x.webp" alt="原創漫畫創作營 2021 第一期" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="12" aria-label="原創漫畫創作營 2021 特別篇" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_special_cover-1x.webp" alt="原創漫畫創作營 2021 特別篇" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="13" aria-label="釋放散播 腐之力百合香" style="animation-delay: 1170ms;"><img src="assets/gd_img_bl_yuri_cover-1x.webp" alt="釋放散播 腐之力百合香" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="14" aria-label="腐之力開啟創造力" style="animation-delay: 1170ms;"><img src="assets/gd_img_bl_create_cover-1x.webp" alt="腐之力開啟創造力" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="15" aria-label="突襲印刷廠" style="animation-delay: 1170ms;"><img src="assets/gd_img_printfactory_cover-1x.webp" alt="突襲印刷廠" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="16" aria-label="創作警示燈" style="animation-delay: 1170ms;"><img src="assets/gd_img_warning_cover-1x.webp" alt="創作警示燈" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="17" aria-label="Ciao!! 臺漫列車新站點" style="animation-delay: 1170ms;"><img src="assets/gd_img_train_cover-1x.webp" alt="Ciao!! 臺漫列車新站點" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="18" aria-label="RISO 印刷復古浪潮" style="animation-delay: 1170ms;"><img src="assets/gd_img_riso_cover-1x.webp" alt="RISO 印刷復古浪潮" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="19" aria-label="字體設計 01" style="animation-delay: 1170ms;"><img src="assets/gd_img_type01_cover-1x.webp" alt="字體設計 01" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="20" aria-label="字體設計 02" style="animation-delay: 1170ms;"><img src="assets/gd_img_type02_cover-1x.webp" alt="字體設計 02" decoding="async" width="960" height="960"></button>
+  <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 70;"><dc-import name="Com_Nav" current="graphic" on-navigate="{{ nav }}" hint-size="100%,108px"></dc-import></div>
+
+  <main style="position: relative; z-index: 2; box-sizing: border-box; width: 100%; max-width: 1240px; margin: 0 auto; padding: clamp(24px, 5vh, 72px) clamp(20px, 3vw, 48px) clamp(100px, calc(13.158vh + 15.79px), 200px); display: flex; flex-direction: column; gap: clamp(20px, 2.6vw, 44px);">
+    <img src="assets/gh_img_deco1.webp" alt="" style="position: absolute; right: 16%; top: 0; width: clamp(81px, 7.2vw, 126px); height: auto; z-index: 3; transform: rotate(-6deg); pointer-events: none; animation: uxDecoIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) 1300ms both; animation-play-state: {{ uxPlay }};">
+    <img src="assets/gh_img_deco2.webp" alt="" style="position: absolute; right: -4%; top: 22%; width: clamp(77px, 7vw, 126px); height: auto; z-index: 3; transform: rotate(0deg); pointer-events: none; animation: uxDecoIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) 1450ms both; animation-play-state: {{ uxPlay }};">
+    <img src="assets/gh_img_deco3.webp" alt="" style="position: absolute; left: -8%; bottom: 16%; width: clamp(67px, 5.92vw, 104px); height: auto; z-index: 3; transform: rotate(-8deg); pointer-events: none; animation: uxDecoIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) 1600ms both; animation-play-state: {{ uxPlay }};">
+    <img src="assets/gh_img_deco4.webp" alt="" style="position: absolute; left: 1.5%; bottom: 5%; width: clamp(66px, 5.5vw, 99px); height: auto; z-index: 3; transform: rotate(8deg); pointer-events: none; animation: uxDecoIn 600ms cubic-bezier(0.34, 1.4, 0.64, 1) 1750ms both; animation-play-state: {{ uxPlay }};">
+
+    <h1 class="h1" style="margin: 0; color: var(--color-inverted-primary, #000000); animation: uxHeadIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both; animation-play-state: {{ uxPlay }};">Graphic Design</h1>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: clamp(14px, 1.3vw, 22px);">
+      <sc-for list="{{ items }}" as="g" hint-placeholder-count="9">
+        <button type="button" onClick="{{ g.open }}" onMouseEnter="{{ g.warm }}" onFocus="{{ g.warm }}" onTouchStart="{{ g.warm }}" aria-label="{{ g.label }}" style="all: unset; box-sizing: border-box; position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; background: var(--color-primary, #F2F2F2); cursor: zoom-in; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); transition: translate 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease; animation: uxCardIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: {{ g.delay }}; animation-play-state: {{ uxPlay }};" style-hover="translate: 0 -6px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);">
+          <sc-if value="{{ g.has }}" hint-placeholder-val="{{ false }}"><img src="{{ g.src }}" alt="{{ g.label }}" loading="lazy" decoding="async" width="960" height="960" style="position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover;"></sc-if>
+          <sc-if value="{{ g.none }}" hint-placeholder-val="{{ true }}"><span class="body2" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--color-second, #A7A7A7);">1 : 1</span></sc-if>
+        </button>
+      </sc-for>
     </div>
   </main>
 </section>
 
-<div id="lb" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="true" aria-label="">
-  <div class="lb-box" id="lbBox">
-    <div class="lb-sw" id="lbSw">
-      <div class="lb-base" aria-hidden="true"></div>
-      <div class="lb-lo" id="lbLo" aria-hidden="true"></div>
-      <div class="lb-hi" id="lbHi" role="img" aria-label=""></div>
+<div ref="{{ lbRef }}" tabindex="-1" role="dialog" aria-modal="true" aria-hidden="{{ lbHidden }}" aria-label="{{ lbLabel }}" onClick="{{ close }}" style="outline: none; position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.9); opacity: {{ lbOpacity }}; pointer-events: {{ lbPointer }}; transition: opacity 280ms ease;">
+  <div onClick="{{ stop }}" style="position: relative; width: min(84vw, calc(70vh * 2048 / 1160)); aspect-ratio: 2048 / 1160; margin: 62px 0 56px; border-radius: 4px; scale: {{ lbScale }}; transition: scale 360ms cubic-bezier(0.22, 1, 0.36, 1);">
+    <div style="position: absolute; inset: 0; opacity: {{ swOpacity }}; translate: {{ swX }} 0; transition: {{ swTr }}; will-change: opacity, translate;">
+    <sc-if value="{{ lbHas }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position: absolute; inset: 0; border-radius: 4px; background: var(--color-inverted-second, #424242);"></div><div aria-hidden="true" style="position: absolute; inset: 0; background-image: {{ lbLow }}; background-size: contain; background-position: center; background-repeat: no-repeat; border-radius: 4px;"></div><div role="img" aria-label="{{ lbLabel }}" style="position: absolute; inset: 0; background-image: {{ lbBg }}; background-size: contain; background-position: center; background-repeat: no-repeat; border-radius: 4px; opacity: {{ lbImgOpacity }}; transition: opacity 320ms ease;"></div></sc-if>
+    <sc-if value="{{ lbNone }}" hint-placeholder-val="{{ false }}"><span class="body2" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--color-second, #A7A7A7); background: var(--color-inverted-second, #424242); border-radius: 4px;">16 : 9</span></sc-if>
     </div>
-    <button type="button" class="lb-btn lb-close" id="lbClose" tabindex="-1" aria-label="Close"><svg width="66" height="31" viewBox="0 0 24 24" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="0.73" stroke-linecap="round" style="display: block;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+    <button type="button" tabindex="{{ lbTab }}" onClick="{{ close }}" aria-label="Close" style="position: absolute; right: -9px; top: -66px; width: 75px; height: 57px; display: flex; align-items: center; justify-content: center; padding: 0; border: none; background: transparent; color: var(--color-primary, #F2F2F2); cursor: pointer; transition: color 200ms ease;" style-hover="color: var(--color-second, #A7A7A7);"><svg width="66" height="31" viewBox="0 0 24 24" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="0.73" stroke-linecap="round" style="display: block;"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
   </div>
-  <button type="button" class="lb-btn lb-prev" id="lbPrev" tabindex="-1" aria-label="上一張"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"></polyline></svg></button>
-  <button type="button" class="lb-btn lb-next" id="lbNext" tabindex="-1" aria-label="下一張"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"></polyline></svg></button>
-  <div class="body2 lb-count" id="lbCount"></div>
+  
+  <button type="button" tabindex="{{ lbTab }}" onClick="{{ prev }}" aria-label="上一張" style="all: unset; position: absolute; left: clamp(8px, 1.5vw, 28px); top: 50%; translate: 0 -50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: var(--color-primary, #F2F2F2); cursor: pointer; transition: color 200ms ease;" style-hover="color: var(--color-second, #A7A7A7);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"></polyline></svg></button>
+  <button type="button" tabindex="{{ lbTab }}" onClick="{{ next }}" aria-label="下一張" style="all: unset; position: absolute; right: clamp(8px, 1.5vw, 28px); top: 50%; translate: 0 -50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: var(--color-primary, #F2F2F2); cursor: pointer; transition: color 200ms ease;" style-hover="color: var(--color-second, #A7A7A7);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"></polyline></svg></button>
+  <div class="body2" style="position: absolute; bottom: clamp(16px, 2vw, 32px); left: 0; right: 0; text-align: center; color: var(--color-second, #A7A7A7);">{{ lbCount }}</div>
 </div>
 
-<button type="button" id="totop" aria-label="回到頂部"><svg width="40%" height="40%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><line x1="12" y1="20" x2="12" y2="4"></line><polyline points="5,11 12,4 19,11"></polyline></svg></button>
-
-<script>
-(function () {
-  var LIST = [{"full":"gd_img_camp2022_basic_kv","label":"原創漫畫創作營 2022 基礎班"},{"full":"gd_img_camp2022_advanced_kv","label":"原創漫畫創作營 2022 進階班"},{"full":"gd_img_camp2023_kv","label":"原創漫畫創作營 2023"},{"full":"gd_img_tiger_kv","label":"拜請虎將"},{"full":"gd_img_voice1_kv","label":"人聲百貨營業中"},{"full":"gd_img_voice2_kv","label":"聲音工作者的幕後物語"},{"full":"gd_img_europe_kv","label":"漫筆歐洲"},{"full":"gd_img_classic_kv","label":"老梗即經典"},{"full":"gd_img_backstage23_kv","label":"漫畫幕後 23 事"},{"full":"gd_img_fingertip_kv","label":"指尖上的漫畫"},{"full":"gd_img_reborn_kv","label":"漫畫成書轉生術"},{"full":"gd_img_camp2021_1_kv","label":"原創漫畫創作營 2021 第一期"},{"full":"gd_img_camp2021_special_kv","label":"原創漫畫創作營 2021 特別篇"},{"full":"gd_img_bl_yuri_kv","label":"釋放散播 腐之力百合香"},{"full":"gd_img_bl_create_kv","label":"腐之力開啟創造力"},{"full":"gd_img_printfactory_kv","label":"突襲印刷廠"},{"full":"gd_img_warning_kv","label":"創作警示燈"},{"full":"gd_img_train_kv","label":"Ciao!! 臺漫列車新站點"},{"full":"gd_img_riso_kv","label":"RISO 印刷復古浪潮"},{"full":"gd_img_type01_kv","label":"字體設計 01"},{"full":"gd_img_type02_kv","label":"字體設計 02"}];
-  var HOME = /github\.io$/.test(location.hostname) ? './' : 'Page_Home.dc.html';
-  var $ = function (id) { return document.getElementById(id); };
-
-  // 進場：進度 = 首屏圖片（導覽列、裝飾、第一屏縮圖）實際載完的比例；全部載完才收起（最多 12 秒）
-  (function () {
-    var el = $('pt-loader'), bar = el.querySelector('b'), n = el.querySelector('span'), done = false;
-    bar.style.animation = 'none'; bar.style.transition = 'transform 300ms ease';
-    var imgs = [].slice.call(document.querySelectorAll('.nav img, .deco')).concat(
-      [].slice.call(document.querySelectorAll('.card img')).filter(function (i) { return i.getBoundingClientRect().top < innerHeight; }));
-    var total = imgs.length + 1, got = 0;
-    function set() { var p = Math.round(got / total * 100); bar.style.transform = 'scaleX(' + (p / 100) + ')'; n.textContent = p + '%'; if (got >= total) finish(); }
-    function one() { got++; set(); }
-    function finish() {
-      if (done) return; done = true;
-      bar.style.transform = 'scaleX(1)'; n.textContent = '100%';
-      setTimeout(function () { el.classList.add('done'); document.body.classList.add('in'); }, 320);
-      setTimeout(function () { el.remove(); }, 820);
-    }
-    imgs.forEach(function (i) {
-      var p = (i.complete && i.naturalWidth) ? Promise.resolve() : new Promise(function (r) { i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); });
-      p.then(function () { return i.decode ? i.decode().catch(function () {}) : null; }).then(one);
-    });
-    (document.fonts ? document.fonts.ready : Promise.resolve()).then(one);
-    set();
-    setTimeout(finish, 12000);
-    window.addEventListener('pageshow', function (e) { if (e.persisted) { finish(); $('leave').classList.remove('on'); } });
-  })();
-
-  // 縮圖完整解碼後才淡入，不會看到下載到一半的圖
-  [].slice.call(document.querySelectorAll('.card img')).forEach(function (im) {
-    function show() { (im.decode ? im.decode() : Promise.resolve()).catch(function () {}).then(function () { im.classList.add('ok'); }); }
-    if (im.complete && im.naturalWidth) show(); else im.addEventListener('load', show, { once: true });
-  });
-
-  // 換頁淡出
-  [].slice.call(document.querySelectorAll('.js-home')).forEach(function (a) { a.setAttribute('href', HOME); });
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href]');
-    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || a.target === '_blank') return;
-    var url = a.getAttribute('href');
-    if (!url || url.charAt(0) === '#' || /^https?:/.test(url)) return;
-    e.preventDefault();
-    var lv = $('leave'); lv.style.background = /^UIUX_/.test(url) ? '#1B1C20' : '#ebebeb'; lv.classList.add('on');
-    setTimeout(function () { location.href = url; }, 320);
-  });
-
-  // 導覽列
-  var works = $('works'), wbtn = works.querySelector('.works-btn');
-  wbtn.addEventListener('click', function (e) { e.stopPropagation(); var o = works.classList.toggle('open'); wbtn.setAttribute('aria-expanded', o); });
-  window.addEventListener('click', function () { works.classList.remove('open'); wbtn.setAttribute('aria-expanded', 'false'); });
-  var nav = $('nav'), totop = $('totop');
-  function onScroll() { nav.classList.toggle('scrolled', scrollY > 8); totop.classList.toggle('show', scrollY > innerHeight * 0.6); }
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  totop.addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
-
-  // 燈箱
-  var lb = $('lb'), sw = $('lbSw'), lo = $('lbLo'), hi = $('lbHi'), cnt = $('lbCount');
-  var HI = (window.devicePixelRatio || 1) > 1, cur = -1, tok = 0, ok = {}, dec = {}, loP = {}, ret = null;
-  function ready(i) {
-    if (dec[i]) return dec[i];
-    var f = LIST[i].full;
-    var l = new Image(); l.decoding = 'async'; l.src = 'assets/' + f + '-1x.webp';
-    var dl = l.decode ? l.decode() : new Promise(function (r, j) { l.onload = r; l.onerror = j; });
-    loP[i] = dl.catch(function () {});
-    var im = HI ? new Image() : null;
-    if (im) { im.decoding = 'async'; im.src = 'assets/' + f + '.webp'; }
-    var p = (im ? (im.decode ? im.decode() : new Promise(function (r, j) { im.onload = r; im.onerror = j; })) : dl)
-      .then(function () { ok[i] = true; if (cur === i) hi.classList.add('ok'); })
-      .catch(function () { delete dec[i]; });
-    return (dec[i] = p);
+<dc-import name="Com_ToTop" tone="light" hint-size="0px,0px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { leaving: false, loaded: false, open: -1 };
+  lbRef = React.createRef();
+  componentDidMount() {
+    const go = () => window.PT ? window.PT.mount(this, { fallback: 6000 }) : setTimeout(go, 16);
+    go();
+    this._key = (e) => {
+      if (this.state.open < 0) return;
+      if (e.key === 'Tab') {
+        const box = this.lbRef.current; if (!box) return;
+        const f = [...box.querySelectorAll('button')];
+        const a = document.activeElement, first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && (a === first || a === box)) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && (a === last || !box.contains(a))) { e.preventDefault(); first.focus(); }
+        return;
+      }
+      if (e.key === 'Escape') this.close();
+      else if (e.key === 'ArrowRight') this.step(1);
+      else if (e.key === 'ArrowLeft') this.step(-1);
+    };
+    window.addEventListener('keydown', this._key);
   }
-  // 等一般版解碼完成（最多 2 秒）才顯示，避免看到逐格載入；高解析版好了再淡入
-  function soon(i) { ready(i); return Promise.race([loP[i] || Promise.resolve(), new Promise(function (r) { setTimeout(r, 2000); })]); }
-  function paint(i, dir) {
-    var f = LIST[i].full;
-    lo.style.backgroundImage = 'url("assets/' + f + '-1x.webp")';
-    hi.style.backgroundImage = 'image-set(url("assets/' + f + '-1x.webp") 1x, url("assets/' + f + '.webp") 2x)';
-    hi.classList.toggle('ok', !!ok[i]);
-    hi.setAttribute('aria-label', LIST[i].label); lb.setAttribute('aria-label', LIST[i].label);
-    cnt.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(LIST.length).padStart(2, '0');
-    sw.style.transition = 'none'; sw.style.opacity = 0; sw.style.translate = (dir * 28) + 'px 0';
-    requestAnimationFrame(function () { requestAnimationFrame(function () {
-      sw.style.transition = 'opacity 320ms ease-out, translate 420ms cubic-bezier(0.22, 1, 0.36, 1)'; sw.style.opacity = 1; sw.style.translate = '0px 0';
-    }); });
-    var n = LIST.length; ready((i + 1) % n); ready((i - 1 + n) % n);
+  componentDidUpdate() {
+    const o = this.state.open;
+    if (o < 0 || o === this._lastOpen) return;
+    this._lastOpen = o;
+    const n = this.list().length;
+    this.ready((o + 1) % n); this.ready((o - 1 + n) % n);
   }
-  function setTab(v) { ['lbClose', 'lbPrev', 'lbNext'].forEach(function (id) { $(id).tabIndex = v; }); }
-  function open(i) {
-    ret = document.activeElement; document.documentElement.style.overflow = 'hidden';
-    var t = ++tok; cur = i; sw.style.transition = 'none'; sw.style.opacity = 0;
-    lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); setTab(0);
-    requestAnimationFrame(function () { lb.focus({ preventScroll: true }); });
-    soon(i).then(function () { if (t === tok) paint(i, 0); });
+  ready(i) {
+    this._dec = this._dec || {};
+    if (this._dec[i]) return this._dec[i];
+    const f = this.list()[i].full;
+    if (!f) return (this._dec[i] = Promise.resolve());
+    const im = new Image();
+    const hi = (window.devicePixelRatio || 1) > 1;
+    if (hi) { const lo = new Image(); lo.src = `assets/${f}-1x.webp`; }
+    im.src = `assets/${f}${hi ? '' : '-1x'}.webp`;
+    im.decoding = 'async';
+    this._ok = this._ok || {};
+    const p = (im.decode ? im.decode() : new Promise((res, rej) => { im.onload = res; im.onerror = rej; }))
+      .then(() => { this._ok[i] = true; if (this.state.shown === i) this.forceUpdate(); })
+      .catch(() => { delete this._dec[i]; });
+    return (this._dec[i] = p);
   }
-  function close() {
-    tok++; cur = -1; document.documentElement.style.overflow = '';
-    lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); setTab(-1);
-    if (ret && ret.focus) ret.focus({ preventScroll: true });
+  // 最多等 300ms：先顯示一般版，高解析版載好後淡入
+  readySoon(i) {
+    return Promise.race([this.ready(i), new Promise(r => setTimeout(r, 300))]);
   }
-  function step(d) {
-    var n = LIST.length, i = (cur + d + n) % n, t = ++tok; cur = i;
-    sw.style.transition = 'opacity 170ms ease-in, translate 170ms ease-in'; sw.style.opacity = 0; sw.style.translate = (-d * 28) + 'px 0';
-    Promise.all([new Promise(function (r) { setTimeout(r, 170); }), soon(i)]).then(function () { if (t === tok) paint(i, d); });
+  show(i, token) {
+    if (token !== this._tok) return;
+    this.setState({ open: i, shown: i, phase: 'enter' });
+    this._raf = requestAnimationFrame(() => { this._raf = requestAnimationFrame(() => { if (token === this._tok) this.setState({ phase: 'idle' }); }); });
   }
-  [].slice.call(document.querySelectorAll('.card')).forEach(function (c) {
-    var i = +c.dataset.i, warm = function () { ready(i); };
-    c.addEventListener('click', function () { open(i); });
-    c.addEventListener('mouseenter', warm); c.addEventListener('focus', warm); c.addEventListener('touchstart', warm, { passive: true });
-  });
-  lb.addEventListener('click', close);
-  $('lbBox').addEventListener('click', function (e) { e.stopPropagation(); });
-  $('lbClose').addEventListener('click', close);
-  $('lbPrev').addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
-  $('lbNext').addEventListener('click', function (e) { e.stopPropagation(); step(1); });
-  addEventListener('keydown', function (e) {
-    if (cur < 0) return;
-    if (e.key === 'Escape') close();
-    else if (e.key === 'ArrowRight') step(1);
-    else if (e.key === 'ArrowLeft') step(-1);
-    else if (e.key === 'Tab') {
-      var f = [$('lbClose'), $('lbPrev'), $('lbNext')], a = document.activeElement;
-      if (e.shiftKey && (a === f[0] || a === lb)) { e.preventDefault(); f[2].focus(); }
-      else if (!e.shiftKey && (a === f[2] || !lb.contains(a))) { e.preventDefault(); f[0].focus(); }
-    }
-  });
-})();
+  componentWillUnmount() { cancelAnimationFrame(this._raf); clearTimeout(this._fallback); window.removeEventListener('keydown', this._key); document.documentElement.style.overflow = ''; }
+  navigate(url) { if (window.PT) window.PT.navigate(this, url); else window.location.href = url; }
+  // 圖片放在 assets/：thumb = 1:1 縮圖（960）、full = 16:9 大圖（2048×1160）（不含 -1x / .webp）；空字串顯示佔位
+  list() {
+    return [
+      { thumb: 'gd_img_camp2022_basic_cover', full: 'gd_img_camp2022_basic_kv', label: '原創漫畫創作營 2022 基礎班' },
+      { thumb: 'gd_img_camp2022_advanced_cover', full: 'gd_img_camp2022_advanced_kv', label: '原創漫畫創作營 2022 進階班' },
+      { thumb: 'gd_img_camp2023_cover', full: 'gd_img_camp2023_kv', label: '原創漫畫創作營 2023' },
+      { thumb: 'gd_img_tiger_cover', full: 'gd_img_tiger_kv', label: '拜請虎將' },
+      { thumb: 'gd_img_voice1_cover', full: 'gd_img_voice1_kv', label: '人聲百貨營業中' },
+      { thumb: 'gd_img_voice2_cover', full: 'gd_img_voice2_kv', label: '聲音工作者的幕後物語' },
+      { thumb: 'gd_img_europe_cover', full: 'gd_img_europe_kv', label: '漫筆歐洲' },
+      { thumb: 'gd_img_classic_cover', full: 'gd_img_classic_kv', label: '老梗即經典' },
+      { thumb: 'gd_img_backstage23_cover', full: 'gd_img_backstage23_kv', label: '漫畫幕後 23 事' },
+      { thumb: 'gd_img_fingertip_cover', full: 'gd_img_fingertip_kv', label: '指尖上的漫畫' },
+      { thumb: 'gd_img_reborn_cover', full: 'gd_img_reborn_kv', label: '漫畫成書轉生術' },
+      { thumb: 'gd_img_camp2021_1_cover', full: 'gd_img_camp2021_1_kv', label: '原創漫畫創作營 2021 第一期' },
+      { thumb: 'gd_img_camp2021_special_cover', full: 'gd_img_camp2021_special_kv', label: '原創漫畫創作營 2021 特別篇' },
+      { thumb: 'gd_img_bl_yuri_cover', full: 'gd_img_bl_yuri_kv', label: '釋放散播 腐之力百合香' },
+      { thumb: 'gd_img_bl_create_cover', full: 'gd_img_bl_create_kv', label: '腐之力開啟創造力' },
+      { thumb: 'gd_img_printfactory_cover', full: 'gd_img_printfactory_kv', label: '突襲印刷廠' },
+      { thumb: 'gd_img_warning_cover', full: 'gd_img_warning_kv', label: '創作警示燈' },
+      { thumb: 'gd_img_train_cover', full: 'gd_img_train_kv', label: 'Ciao!! 臺漫列車新站點' },
+      { thumb: 'gd_img_riso_cover', full: 'gd_img_riso_kv', label: 'RISO 印刷復古浪潮' },
+      { thumb: 'gd_img_type01_cover', full: 'gd_img_type01_kv', label: '字體設計 01' },
+      { thumb: 'gd_img_type02_cover', full: 'gd_img_type02_kv', label: '字體設計 02' }
+    ].map(g => ({ thumb: g.thumb || '', full: g.full || '', label: g.label }));
+  }
+  openAt(i) {
+    document.documentElement.style.overflow = 'hidden';
+    this._ret = document.activeElement;
+    requestAnimationFrame(() => this.lbRef.current && this.lbRef.current.focus({ preventScroll: true }));
+    const t = this._tok = (this._tok || 0) + 1;
+    cancelAnimationFrame(this._raf);
+    this.setState({ open: i, phase: 'hide', dir: 0 });
+    this.readySoon(i).then(() => this.show(i, t));
+  }
+  close() {
+    this._tok = (this._tok || 0) + 1; this._lastOpen = -1; document.documentElement.style.overflow = ''; this.setState({ open: -1 });
+    if (this._ret && this._ret.focus) this._ret.focus({ preventScroll: true });
+  }
+  step(d) {
+    const n = this.list().length;
+    const i = (this.state.open + d + n) % n;
+    const t = this._tok = (this._tok || 0) + 1;
+    cancelAnimationFrame(this._raf);
+    this.setState({ open: i, phase: 'out', dir: d });
+    Promise.all([new Promise(r => setTimeout(r, 170)), this.readySoon(i)]).then(() => this.show(i, t));
+  }
+  renderVals() {
+    const { leaving, loaded, open } = this.state;
+    const list = this.list();
+    const bg = (f) => f ? `image-set(url("assets/${f}-1x.webp") 1x, url("assets/${f}.webp") 2x)` : 'none';
+    const items = list.map((g, i) => ({
+      label: g.label, has: !!g.thumb, none: !g.thumb, src: g.thumb ? `assets/${g.thumb}-1x.webp` : '',
+      open: () => this.openAt(i),
+      warm: () => this.ready(i),
+      delay: (450 + Math.min(i, 8) * 90) + 'ms'
+    }));
+    const cur = list[this.state.shown ?? 0] || list[0];
+    const isOpen = open >= 0;
+    const seen = this.state.shown != null;
+    const phase = this.state.phase || 'idle', dir = this.state.dir ?? 1;
+    return {
+      items,
+      nav: (url) => this.navigate(url),
+      close: () => this.close(),
+      stop: (e) => e.stopPropagation(),
+      prev: (e) => { e.stopPropagation(); this.step(-1); },
+      next: (e) => { e.stopPropagation(); this.step(1); },
+      lbOpacity: isOpen ? 1 : 0,
+      lbPointer: isOpen ? 'auto' : 'none',
+      lbRef: this.lbRef, lbHidden: isOpen ? 'false' : 'true', lbTab: isOpen ? 0 : -1,
+      lbScale: isOpen ? '1' : '0.96',
+      swOpacity: phase === 'idle' ? 1 : 0,
+      swX: phase === 'out' ? (-dir * 28) + 'px' : phase === 'enter' ? (dir * 28) + 'px' : '0px',
+      swTr: (phase === 'enter' || phase === 'hide') ? 'none' : phase === 'out' ? 'opacity 170ms ease-in, translate 170ms ease-in' : 'opacity 320ms ease-out, translate 420ms cubic-bezier(0.22, 1, 0.36, 1)',
+      lbHas: seen && !!cur.full, lbNone: seen && !cur.full, lbBg: bg(cur.full), lbLow: cur.full ? `url("assets/${cur.full}-1x.webp")` : 'none', lbImgOpacity: (this._ok && this._ok[this.state.shown ?? 0]) ? 1 : 0, lbLabel: cur.label,
+      lbCount: String((this.state.shown ?? 0) + 1).padStart(2, '0') + ' / ' + String(list.length).padStart(2, '0'),
+      ...(window.PT ? window.PT.cover(this, '#ebebeb') : { coverOpacity: 1, coverPointer: 'auto', leaveOpacity: 0, coverBg: '#ebebeb' }),
+      uxPlay: loaded ? 'running' : 'paused'
+    };
+  }
+}
 </script>
 </body>
 </html>

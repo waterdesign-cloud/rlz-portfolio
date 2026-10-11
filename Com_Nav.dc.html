@@ -59,14 +59,14 @@ class Component extends DCLogic {
   go(e, url) {
     e.preventDefault();
     this.setState({ workOpen: false });
-    if (this.props.onNavigate) this.props.onNavigate(url); else window.location.href = (url === 'Page_Home.dc.html' && /github\.io$/.test(location.hostname)) ? './' : url;
+    if (this.props.onNavigate) this.props.onNavigate(url); else window.location.href = (url === 'Page_Home.dc.html' && /github\.io$|workers\.dev$|pages\.dev$/.test(location.hostname)) ? './' : url;
   }
   renderVals() {
     const cur = this.props.current ?? '';
     const dark = this.props.tone === 'dark';
     const open = this.state.workOpen;
     return {
-      homeHref: /github\.io$/.test(location.hostname) ? './' : 'Page_Home.dc.html',
+      homeHref: /github\.io$|workers\.dev$|pages\.dev$/.test(location.hostname) ? './' : 'Page_Home.dc.html',
       isHome: cur === 'home', notHome: cur !== 'home',
       isAbout: cur === 'about', notAbout: cur !== 'about',
       goHome: (e) => this.go(e, 'Page_Home.dc.html'),

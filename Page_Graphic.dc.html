@@ -20,6 +20,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&amp;family=Noto+Sans+TC:wght@300&amp;display=swap">
 <link rel="stylesheet" href="_ds/portfolio-design-system-03ed5cab-7880-4aa2-b819-a2eaba3528c8/tokens/tokens.css">
+<link rel="preload" as="image" href="assets/gh_img_deco1.webp">
+<link rel="preload" as="image" href="assets/gh_img_deco2.webp">
+<link rel="preload" as="image" href="assets/gh_img_deco3.webp">
+<link rel="preload" as="image" href="assets/gh_img_deco4.webp">
 <link rel="preload" as="image" href="assets/gd_img_camp2022_basic_cover-1x.webp">
 <link rel="preload" as="image" href="assets/gd_img_camp2022_advanced_cover-1x.webp">
 <link rel="preload" as="image" href="assets/gd_img_camp2023_cover-1x.webp">
@@ -37,7 +41,7 @@ body.in .anim { animation-play-state: running !important; }
 #pt-loader { position: fixed; inset: 0; z-index: 2147483647; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: #ebebeb; transition: opacity 450ms ease; }
 #pt-loader.done { opacity: 0; pointer-events: none; }
 #pt-loader i { display: block; width: 160px; height: 1px; overflow: hidden; background: #4A485033; }
-#pt-loader b { display: block; height: 100%; background: #4A4850; transform-origin: left; transform: scaleX(0); animation: ptLoad 4s cubic-bezier(.08,.6,.2,1) forwards; }
+#pt-loader b { display: block; height: 100%; background: #4A4850; transform-origin: left; transform: scaleX(0); animation: ptLoad 6s cubic-bezier(.08,.6,.2,1) forwards; }
 #pt-loader span { font-family: 'Noto Sans TC', sans-serif; font-weight: 300; font-size: 14px; line-height: 24px; color: #4A4850; font-variant-numeric: tabular-nums; }
 #leave { position: fixed; inset: 0; z-index: 101; pointer-events: none; opacity: 0; transition: opacity 300ms ease-out; background: #ebebeb; }
 #leave.on { opacity: 1; pointer-events: auto; }
@@ -124,19 +128,19 @@ h1.h1 { margin: 0; color: var(--color-inverted-primary, #000000); animation: uxH
       <button type="button" class="card anim" data-i="5" aria-label="聲音工作者的幕後物語" style="animation-delay: 900ms;"><img src="assets/gd_img_voice2_cover-1x.webp" alt="聲音工作者的幕後物語" fetchpriority="high" decoding="async" width="960" height="960"></button>
       <button type="button" class="card anim" data-i="6" aria-label="漫筆歐洲" style="animation-delay: 990ms;"><img src="assets/gd_img_europe_cover-1x.webp" alt="漫筆歐洲" fetchpriority="high" decoding="async" width="960" height="960"></button>
       <button type="button" class="card anim" data-i="7" aria-label="老梗即經典" style="animation-delay: 1080ms;"><img src="assets/gd_img_classic_cover-1x.webp" alt="老梗即經典" fetchpriority="high" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="8" aria-label="漫畫幕後 23 事" style="animation-delay: 1170ms;"><img src="assets/gd_img_backstage23_cover-1x.webp" alt="漫畫幕後 23 事" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="9" aria-label="指尖上的漫畫" style="animation-delay: 1170ms;"><img src="assets/gd_img_fingertip_cover-1x.webp" alt="指尖上的漫畫" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="10" aria-label="漫畫成書轉生術" style="animation-delay: 1170ms;"><img src="assets/gd_img_reborn_cover-1x.webp" alt="漫畫成書轉生術" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="11" aria-label="原創漫畫創作營 2021 第一期" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_1_cover-1x.webp" alt="原創漫畫創作營 2021 第一期" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="12" aria-label="原創漫畫創作營 2021 特別篇" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_special_cover-1x.webp" alt="原創漫畫創作營 2021 特別篇" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="13" aria-label="釋放散播 腐之力百合香" style="animation-delay: 1170ms;"><img src="assets/gd_img_bl_yuri_cover-1x.webp" alt="釋放散播 腐之力百合香" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="14" aria-label="腐之力開啟創造力" style="animation-delay: 1170ms;"><img src="assets/gd_img_bl_create_cover-1x.webp" alt="腐之力開啟創造力" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="15" aria-label="突襲印刷廠" style="animation-delay: 1170ms;"><img src="assets/gd_img_printfactory_cover-1x.webp" alt="突襲印刷廠" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="16" aria-label="創作警示燈" style="animation-delay: 1170ms;"><img src="assets/gd_img_warning_cover-1x.webp" alt="創作警示燈" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="17" aria-label="Ciao!! 臺漫列車新站點" style="animation-delay: 1170ms;"><img src="assets/gd_img_train_cover-1x.webp" alt="Ciao!! 臺漫列車新站點" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="18" aria-label="RISO 印刷復古浪潮" style="animation-delay: 1170ms;"><img src="assets/gd_img_riso_cover-1x.webp" alt="RISO 印刷復古浪潮" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="19" aria-label="字體設計 01" style="animation-delay: 1170ms;"><img src="assets/gd_img_type01_cover-1x.webp" alt="字體設計 01" loading="lazy" decoding="async" width="960" height="960"></button>
-      <button type="button" class="card anim" data-i="20" aria-label="字體設計 02" style="animation-delay: 1170ms;"><img src="assets/gd_img_type02_cover-1x.webp" alt="字體設計 02" loading="lazy" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="8" aria-label="漫畫幕後 23 事" style="animation-delay: 1170ms;"><img src="assets/gd_img_backstage23_cover-1x.webp" alt="漫畫幕後 23 事" fetchpriority="high" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="9" aria-label="指尖上的漫畫" style="animation-delay: 1170ms;"><img src="assets/gd_img_fingertip_cover-1x.webp" alt="指尖上的漫畫" fetchpriority="high" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="10" aria-label="漫畫成書轉生術" style="animation-delay: 1170ms;"><img src="assets/gd_img_reborn_cover-1x.webp" alt="漫畫成書轉生術" fetchpriority="high" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="11" aria-label="原創漫畫創作營 2021 第一期" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_1_cover-1x.webp" alt="原創漫畫創作營 2021 第一期" fetchpriority="high" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="12" aria-label="原創漫畫創作營 2021 特別篇" style="animation-delay: 1170ms;"><img src="assets/gd_img_camp2021_special_cover-1x.webp" alt="原創漫畫創作營 2021 特別篇" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="13" aria-label="釋放散播 腐之力百合香" style="animation-delay: 1170ms;"><img src="assets/gd_img_bl_yuri_cover-1x.webp" alt="釋放散播 腐之力百合香" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="14" aria-label="腐之力開啟創造力" style="animation-delay: 1170ms;"><img src="assets/gd_img_bl_create_cover-1x.webp" alt="腐之力開啟創造力" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="15" aria-label="突襲印刷廠" style="animation-delay: 1170ms;"><img src="assets/gd_img_printfactory_cover-1x.webp" alt="突襲印刷廠" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="16" aria-label="創作警示燈" style="animation-delay: 1170ms;"><img src="assets/gd_img_warning_cover-1x.webp" alt="創作警示燈" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="17" aria-label="Ciao!! 臺漫列車新站點" style="animation-delay: 1170ms;"><img src="assets/gd_img_train_cover-1x.webp" alt="Ciao!! 臺漫列車新站點" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="18" aria-label="RISO 印刷復古浪潮" style="animation-delay: 1170ms;"><img src="assets/gd_img_riso_cover-1x.webp" alt="RISO 印刷復古浪潮" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="19" aria-label="字體設計 01" style="animation-delay: 1170ms;"><img src="assets/gd_img_type01_cover-1x.webp" alt="字體設計 01" decoding="async" width="960" height="960"></button>
+      <button type="button" class="card anim" data-i="20" aria-label="字體設計 02" style="animation-delay: 1170ms;"><img src="assets/gd_img_type02_cover-1x.webp" alt="字體設計 02" decoding="async" width="960" height="960"></button>
     </div>
   </main>
 </section>
@@ -177,11 +181,11 @@ h1.h1 { margin: 0; color: var(--color-inverted-primary, #000000); animation: uxH
       setTimeout(function () { el.remove(); }, 760);
     }
     var wait = [document.fonts ? document.fonts.ready : null];
-    [].slice.call(document.querySelectorAll('.nav img, .card img')).slice(0, 9).forEach(function (i) {
+    [].slice.call(document.querySelectorAll('.nav img, .deco, .card img')).filter(function (i) { return i.getBoundingClientRect().top < innerHeight * 1.2; }).forEach(function (i) {
       if (!i.complete) wait.push(new Promise(function (r) { i.addEventListener('load', r, { once: true }); i.addEventListener('error', r, { once: true }); }));
     });
     Promise.all(wait).then(finish);
-    setTimeout(finish, 4000);
+    setTimeout(finish, 6000);
     window.addEventListener('pageshow', function (e) { if (e.persisted) { finish(); $('leave').classList.remove('on'); } });
   })();
 
@@ -208,18 +212,22 @@ h1.h1 { margin: 0; color: var(--color-inverted-primary, #000000); animation: uxH
 
   // 燈箱
   var lb = $('lb'), sw = $('lbSw'), lo = $('lbLo'), hi = $('lbHi'), cnt = $('lbCount');
-  var HI = (window.devicePixelRatio || 1) > 1, cur = -1, tok = 0, ok = {}, dec = {}, ret = null;
+  var HI = (window.devicePixelRatio || 1) > 1, cur = -1, tok = 0, ok = {}, dec = {}, loP = {}, ret = null;
   function ready(i) {
     if (dec[i]) return dec[i];
     var f = LIST[i].full;
-    if (HI) { var l = new Image(); l.src = 'assets/' + f + '-1x.webp'; }
-    var im = new Image(); im.decoding = 'async'; im.src = 'assets/' + f + (HI ? '' : '-1x') + '.webp';
-    var p = (im.decode ? im.decode() : new Promise(function (r, j) { im.onload = r; im.onerror = j; }))
+    var l = new Image(); l.decoding = 'async'; l.src = 'assets/' + f + '-1x.webp';
+    var dl = l.decode ? l.decode() : new Promise(function (r, j) { l.onload = r; l.onerror = j; });
+    loP[i] = dl.catch(function () {});
+    var im = HI ? new Image() : null;
+    if (im) { im.decoding = 'async'; im.src = 'assets/' + f + '.webp'; }
+    var p = (im ? (im.decode ? im.decode() : new Promise(function (r, j) { im.onload = r; im.onerror = j; })) : dl)
       .then(function () { ok[i] = true; if (cur === i) hi.classList.add('ok'); })
       .catch(function () { delete dec[i]; });
     return (dec[i] = p);
   }
-  function soon(i) { return Promise.race([ready(i), new Promise(function (r) { setTimeout(r, 300); })]); }
+  // 等一般版解碼完成（最多 2 秒）才顯示，避免看到逐格載入；高解析版好了再淡入
+  function soon(i) { ready(i); return Promise.race([loP[i] || Promise.resolve(), new Promise(function (r) { setTimeout(r, 2000); })]); }
   function paint(i, dir) {
     var f = LIST[i].full;
     lo.style.backgroundImage = 'url("assets/' + f + '-1x.webp")';
